@@ -24,7 +24,8 @@ header {
     padding: 5px;
 }
 .navbar-expand-sm .navbar-nav .nav-link{
-    padding-left: 30px;
+    padding-left: 40px;
+
 }
 .topsitename{
     color: black;
@@ -37,15 +38,61 @@ a:hover{
 a:visited{
     color: black;
 }
-.siteLogo, .siteBrowse, .dropdown, .searchBar {
+.siteLogo, .siteBrowse, .dropdown, .searchBar, .siteIcons, .leftsideElements, .rightsideElements{
     display: inline !important;
 }
 #searchBar {
     background-image: url('../images/magnifyingglass.svg');
     background-position: 10px 12px;
     background-repeat: no-repeat;
-    width: 30%;
+    width: 25%;
     font-size: 14px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
 }
+.siteIcons{
+    margin-left: 17%;
+}
+
+.siteIcons img{
+    margin-left: 1%;
+}
+
+.leftsideElements, .rightsideElements{
+    width: 50%;
+}
+
+    .rightsideElements img, .rightsideElements button {
+        vertical-align: middle;
+    }
+
+#createAccountBTN {
+    padding: 12px 30px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 1px;
+    border: 0px; 
+    color: #FF6636;
+    background-color: #FFEEE8;
+    margin-left: 3%;
+}
+
+#signInBtn {
+    margin-left: 1%;
+    padding: 12px 30px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 1px;
+    border: 0px;
+    color: white;
+    background-color: #FF6636;
+}
+.etutorfooterinfo{
+    width: 22%;
+}
+.footericons, .topcategory, .quickLinks, .downloadOurApp, .support {
+    width: 19%;
+}
+    .footericons, .etutorfooterinfo, .etutorfooterinfo p, .topcategory h6, .topcategory, .quickLinks, quickLinks h6, .support, .support h6, .downloadOurApp, .downloadOurApp h6 {
+        display: inline-block;
+    }

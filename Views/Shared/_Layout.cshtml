@@ -39,7 +39,7 @@
                       </select>
                     </div>
 
-                   <div class="dropdown">
+                    <div class="dropdown" style="margin-right: 20px;">
                       <select name="language" id="language">
                           <option value="en">English</option>
                           <option value="az">Azerbaijani</option>
@@ -52,24 +52,44 @@
         </nav>
     </header>
     <div class="container-fluid">
-        <div class="container-fluid siteLogo" style="margin-left: 20px;">
-            <a class="navbar-brand topsitename" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 22px;">
-            <img src="~/images/graduationcap.svg" width="38px" style="padding-bottom: 7px;" />
-            E-tutor</a>
+        <div class="container-fluid leftsideElements">
+            <div class="container-fluid siteLogo" style="margin-left: 20px;">
+                <a class="navbar-brand topsitename" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 22px;">
+                    <img src="~/images/graduationcap.svg" width="38px" style="padding-bottom: 7px;" />
+                    E-tutor
+                </a>
+            </div>
+            <div class="container-fluid siteBrowse">
+                <div class="dropdown" style="margin-right: 20px; border: 1px solid #E9EAF0; padding: 12px;">
+                    <select name="browse" id="browse">
+                        <option value="">Browse</option>
+                    </select>
+                </div>
+
+                <input class="searchBar" type="text" id="searchBar" placeholder="What do you want learn..." />
+            </div>
+        </div>
+
+        <div class="container-fluid rightsideElements">
+
+
+            <div class="container-fluid siteIcons">
+                <a id="notification">
+                    <img src="~/images/bell.svg" />
+                </a>
+                <a id="favorite">
+                    <img src="~/images/heart.svg" />
+                </a>
+                <a id="shoppingCart">
+                    <img src="~/images/shoppingcartsimple.svg" />
+                </a>
+            </div>
+
+            <button id="createAccountBTN">Create Account</button>
+            <button id="signInBtn">Sign In</button>
         </div>
         
-        <div class="container-fluid siteBrowse"> 
-             <div class="dropdown" style="margin-right: 20px; border: 1px solid #E9EAF0; padding: 12px;">
-                      <select name="browse" id="browse">
-                          <option value="">Browse</option>
-                      </select>
-             </div>
-
-             <input class="searchBar" type="text" id="searchBar"  placeholder="What do you want learn..."/>
-
-
-        </div>
-
+       
     </div>
     
     <div class="container">
@@ -80,8 +100,53 @@
 
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container footerdiv" width="19%">
+            <div class="container-fluid etutorfooterinfo"> 
+                <div class="container-fluid siteLogo" style="margin-left: 20px;">
+                    <a class="navbar-brand topsitename" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 22px;">
+                        <img src="~/images/graduationcap.svg" width="38px" style="padding-bottom: 7px;" />
+                        E-tutor
+                    </a>
+                </div>
+                <br />
+                <p>
+                    Aliquam rhoncus ligula est, non pulvinar elit <br />
+                    convallis nec. Donec mattis odio at.
+                </p>
+                <div class="container-fluid footericons">
+                    <a id="facebook"><img src="~/images/facebook.svg" /></a>
+                    <a id="instagram"><img src="~/images/instagram.svg" /></a>
+                    <a id="linkedin"><img src="~/images/linkedin.svg" /></a>
+                    <a id="twitter"><img src="~/images/twitter.svg" /></a>
+                    <a id="youtube"><img src="~/images/youtube.svg" /></a>
+                </div>
+            </div>
+            <div class="container-fluid topcategory">
+                <h6> TOP 4 CATEGORY</h6>
+                <a>Development</a>
+                <a>Finance & Accounting</a>
+                <a>Design</a>
+                <a>Business</a>
+            </div>
+            <div class="container-fluid quickLinks">
+                <h6> QUICK LINKS</h6>
+                <a>About</a>
+                <a>Become Instructor <img src="~/images/arrowright.svg" /></a>
+                <a>Contact</a>
+                <a>Career</a>
+            </div>
+            <div class="container-fluid support">
+                <h6> SUPPORT</h6>
+                <a>Help Center</a>
+                <a>FAQs</a>
+                <a>Terms & Conditions</a>
+                <a>Privacy Policy</a>
+            </div>
+            <div class="container-fluid downloadOurApp">
+                <h6>DOWNLOAD OUR APP</h6>
+                <a><img src="~/images/downloadiosapp.svg" /></a>
+                <a><img src="~/images/downloadandrapp.svg" /></a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
