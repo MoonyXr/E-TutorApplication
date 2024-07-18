@@ -8,39 +8,47 @@ select {
     background-color: transparent !important;
     color: #8C94A3 !important;
 }
+
 header {
     background-color: #1D2026;
     color: #8C94A3;
 }
 
 .navbarclass {
-    background-color: #1D2026!important;
+    background-color: #1D2026 !important;
     color: #8C94A3 !important;
 }
+
 .text-dark {
     color: #8C94A3 !important;
 }
-.li{
+
+.li {
     padding: 5px;
 }
-.navbar-expand-sm .navbar-nav .nav-link{
-    padding-left: 40px;
 
+.navbar-expand-sm .navbar-nav .nav-link {
+    padding-left: 40px;
 }
-.topsitename{
+
+.topsitename {
     color: black;
-    font-weight:bold;
-    text-decoration:none;
+    font-weight: bold;
+    text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: black;
 }
-a:visited{
+
+a:visited {
     color: black;
 }
-.siteLogo, .siteBrowse, .dropdown, .searchBar, .siteIcons, .leftsideElements, .rightsideElements{
+
+.siteLogo, .siteBrowse, .dropdown, .searchBar, .siteIcons, .leftsideElements, .rightsideElements {
     display: inline !important;
 }
+
 #searchBar {
     background-image: url('../images/magnifyingglass.svg');
     background-position: 10px 12px;
@@ -50,16 +58,17 @@ a:visited{
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
 }
-.siteIcons{
-    margin-left: 17%;
+
+.siteIcons {
+    margin-left: 16%;
 }
 
-.siteIcons img{
-    margin-left: 1%;
-}
+    .siteIcons img {
+        margin-left: 1%;
+    }
 
-.leftsideElements, .rightsideElements{
-    width: 50%;
+.leftsideElements, .rightsideElements {
+    width: 49%;
 }
 
     .rightsideElements img, .rightsideElements button {
@@ -71,7 +80,7 @@ a:visited{
     font-weight: 500;
     font-size: 16px;
     border-radius: 1px;
-    border: 0px; 
+    border: 0px;
     color: #FF6636;
     background-color: #FFEEE8;
     margin-left: 3%;
@@ -87,12 +96,69 @@ a:visited{
     color: white;
     background-color: #FF6636;
 }
-.etutorfooterinfo{
-    width: 22%;
+
+.etutorfooterinfo {
+    width: 26%;
 }
-.footericons, .topcategory, .quickLinks, .downloadOurApp, .support {
-    width: 19%;
+
+.topcategory, .quickLinks, .downloadOurApp, .support {
+    width: 17%;
 }
-    .footericons, .etutorfooterinfo, .etutorfooterinfo p, .topcategory h6, .topcategory, .quickLinks, quickLinks h6, .support, .support h6, .downloadOurApp, .downloadOurApp h6 {
+
+    .etutorfooterinfo, .etutorfooterinfo p, .topcategory p, .topcategory, .quickLinks, .quickLinks p, .support, .support p, .downloadOurApp, .downloadOurApp p {
         display: inline-block;
     }
+
+footer a {
+    font-size: 14px;
+}
+
+.topcategory p, .quickLinks p, .support p, .downloadOurApp p {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+
+.footericons img {
+    display: inline;
+    padding-right: 5px;
+}
+
+footer {
+    background-color: #1D2026;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+.footerdiv {
+    width: 95%;
+}
+
+#linkedin img {
+    box-shadow: 0px 1px 4px #FF6636;
+    padding: 0px;
+}
+
+.footericons {
+    padding-left: 0px;
+}
+
+.downloadOurApp img {
+    width: 140px;
+    height: 60px;
+    padding-bottom: 10px;
+}
+
+.bottomsection p, .bottomsection div {
+    display: inline-block;
+}
+
+.bottomsection select {
+    padding: 5px;
+    border: 1px solid grey;
+    margin-left: 59% !important;
+    width: 135px;
+}
