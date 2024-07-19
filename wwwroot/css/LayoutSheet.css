@@ -1,7 +1,24 @@
 ﻿body {
     box-sizing: border-box;
 }
+.mostly-customized-scrollbar {
+    display: block;
+    width: 10em;
+    overflow: auto;
+    padding: 1em;
+    margin: 1em auto;
+}
 
+    .mostly-customized-scrollbar::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+        background-color: #aaa; /* or add it to the track */
+    }
+
+    /* Add a thumb */
+    .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
+        background: #000;
+    }
 
 select {
     border: none;
@@ -51,21 +68,25 @@ a:visited {
 
 #searchBar {
     background-image: url('../images/magnifyingglass.svg');
-    background-position: 10px 12px;
+    background-position: 8px 8px;
     background-repeat: no-repeat;
     width: 25%;
     font-size: 14px;
-    padding: 12px 20px 12px 40px;
+    padding: 8px 20px 8px 40px;
     border: 1px solid #ddd;
 }
 
-.siteIcons {
+/*.siteIcons {
     margin-left: 16%;
+}*/
+.rightsideElements{
+    text-align: right;
+    right: 0px;
+    position: absolute;
 }
-
-    .siteIcons img {
-        margin-left: 1%;
-    }
+.siteIcons img {
+    margin-left: 1%;
+}
 
 .leftsideElements, .rightsideElements {
     width: 49%;
@@ -73,10 +94,11 @@ a:visited {
 
     .rightsideElements img, .rightsideElements button {
         vertical-align: middle;
+       
     }
 
 #createAccountBTN {
-    padding: 12px 30px;
+    padding: 8px 30px;
     font-weight: 500;
     font-size: 16px;
     border-radius: 1px;
@@ -88,7 +110,7 @@ a:visited {
 
 #signInBtn {
     margin-left: 1%;
-    padding: 12px 30px;
+    padding: 8px 30px;
     font-weight: 500;
     font-size: 16px;
     border-radius: 1px;
@@ -126,11 +148,12 @@ footer a {
 
 footer {
     background-color: #1D2026;
-    position: fixed;
-    left: 0;
+    position: relative;
     bottom: 0;
     width: 100%;
     padding: 20px;
+    overflow: hidden;
+    z-index: 100;
 }
 
 .footerdiv {

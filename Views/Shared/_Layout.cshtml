@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - E Tutor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/css/layoutsheet.css" rel="stylesheet" />
 </head>
@@ -51,7 +52,7 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid activepanel">
         <div class="container-fluid leftsideElements">
             <div class="container-fluid siteLogo" style="margin-left: 20px;">
                 <a class="navbar-brand topsitename" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 22px;">
@@ -60,7 +61,7 @@
                 </a>
             </div>
             <div class="container-fluid siteBrowse">
-                <div class="dropdown" style="margin-right: 20px; border: 1px solid #E9EAF0; padding: 12px;">
+                <div class="dropdown" style="margin-right: 20px; border: 1px solid #E9EAF0; padding: 8px;">
                     <select name="browse" id="browse">
                         <option value="">Browse</option>
                     </select>
@@ -91,8 +92,8 @@
 
 
     </div>
-
-    <div class="container">
+    <hr style="border-top: 1px solid grey; margin-bottom: 0px;"/>
+    <div class="mainbody mostly-customized-scrollbar">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
