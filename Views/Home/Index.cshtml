@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<link href="~/css/homepage.css" rel="stylesheet" />
+<link href="~/css/homepagestyle.css" rel="stylesheet" />
 <div class="topdiv">
     <div class="textandimage">
         <div class="container textSide">
@@ -17,14 +17,4 @@
     </div>
 </div>
 
-<div class="container-fluid browseTopCategory">
-    <h2>Browse top category</h2>
-    <div class="container">
-
-    </div>
-
-    <p>
-        We have more category & subcategory. <span style="color: #FF6636;">Browse All</span>
-        <img src="~/images/arrowrightbrowse.svg" />
-    </p>
-</div>
+@Html.Partial("_HomeAllCategory.cshtml")

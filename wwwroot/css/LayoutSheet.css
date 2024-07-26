@@ -1,5 +1,6 @@
 ﻿body {
     box-sizing: border-box;
+    margin-bottom: 0px;
 }
 .mostly-customized-scrollbar {
     display: block;
@@ -27,6 +28,8 @@ select {
 }
 
 header {
+    position: sticky;
+    top: 0px;
     background-color: #1D2026;
     color: #8C94A3;
 }
