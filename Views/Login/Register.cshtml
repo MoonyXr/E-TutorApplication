@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_LoginLayout";
+}
+@model E_TutorApplicationFront.Models.ViewModel.RegisterViewModel
+<div class="container-fluid imageside">
+    <img src="~/images/register.svg" />
+</div>
+
+<div class="container-fluid">
+    <div class="signUpForm">
+        <h2>Create your account</h2>
+
+        <form method="post" asp-action="Register" asp-asp-controller="Login">
+            <div class="row">
+                <div class="col-sm">
+
+                    <label asp-for="Firstname" class="control-label">Full Name</label> <br />
+                    <input type="text" placeholder="First name..." class="form-control textboxSignUp" asp-for="Firstname" />
+                    <span asp-validation-for="Firstname" class="validationText text-danger"></span>
+
+                </div>
+                <div class="col-sm">
+                    <label asp-for="LastName" class="control-label" style="color: transparent;">h</label><br />
+                    <input asp-for="LastName"  type="text" placeholder="Last name..." class="form-control textboxSignUp"  />
+                    <span asp-validation-for="LastName" class="validationText text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label asp-for="Username" class="control-label">Username</label> <br />
+                    <input asp-for="Username" type="text" placeholder="Username..." class="form-control textboxSignUp" />
+                    <span asp-validation-for="Username" class="validationText text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label asp-for="Email" class="control-label">Email</label> <br />
+                    <input asp-for="Email" type="text" placeholder="Email..." class="form-control textboxSignUp" name="Email" />
+                    <span asp-validation-for="Email" class="validationText text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label asp-for="Password" class="control-label">Password</label> <br />
+                    <input asp-for="Password" type="password" placeholder="First name..." class="form-control textboxSignUp" name="Password" />
+                    <span asp-validation-for="Password" class="validationText text-danger"></span>
+
+                </div>
+                <div class="col-sm">
+                    <label asp-for="RePassword" class="control-label">Confirm Password</label> <br />
+                    <input asp-for="RePassword" type="password" placeholder="Last name..." class="form-control textboxSignUp" />
+                    <span asp-validation-for="RePassword" class="validationText text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="row submitrow">
+                <div class="col-sm">
+
+                    <input type="checkbox" class="form-check-input checkBox" asp-for="Conditions" /> <span>I Agree with all of your <span style="color: #564FFD">Terms & Conditions</span></span>
+                    <span asp-validation-for="Conditions" class="validationText text-danger"></span>
+                </div>
+                <div class="col-sm buttoncol">
+                    <button id="signUpBtn" type="submit" >Create Account <img src="~/images/arrowright.svg" /></button>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
