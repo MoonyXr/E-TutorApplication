@@ -1,10 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model E_TutorApplicationFront.Models.ViewModel.RegisterViewModel
 @{
     Layout = "_LoginLayout";
 }
-@model E_TutorApplicationFront.Models.ViewModel.RegisterViewModel
+
 <div class="container-fluid imageside">
     <img src="~/images/register.svg" />
 </div>
@@ -38,20 +36,26 @@
             <div class="row">
                 <div class="col-sm">
                     <label asp-for="Email" class="control-label">Email</label> <br />
-                    <input asp-for="Email" type="text" placeholder="Email..." class="form-control textboxSignUp" name="Email" />
+                    <input asp-for="Email" type="text" placeholder="Email..." class="form-control textboxSignUp" />
                     <span asp-validation-for="Email" class="validationText text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm">
                     <label asp-for="Password" class="control-label">Password</label> <br />
-                    <input asp-for="Password" type="password" placeholder="First name..." class="form-control textboxSignUp" name="Password" />
+                    <div class="password-container">
+                        <input asp-for="Password" id="password" type="password" placeholder="First name..." class="form-control textboxSignUp password-input password" />
+                        <span id="togglePassword" class="toggle-icon"><i class="fas fa-eye"></i></span>
+                    </div>
                     <span asp-validation-for="Password" class="validationText text-danger"></span>
 
                 </div>
                 <div class="col-sm">
                     <label asp-for="RePassword" class="control-label">Confirm Password</label> <br />
-                    <input asp-for="RePassword" type="password" placeholder="Last name..." class="form-control textboxSignUp" />
+                    <div class="password-container">
+                        <input asp-for="RePassword" id="rePassword" type="password" placeholder="Last name..." class="form-control textboxSignUp  password-input password" />
+                        <span id="toggleRePassword" class="toggle-icon"><i class="fas fa-eye"></i></span>
+                    </div>
                     <span asp-validation-for="RePassword" class="validationText text-danger"></span>
                 </div>
             </div>
@@ -59,7 +63,7 @@
             <div class="row submitrow">
                 <div class="col-sm">
 
-                    <input type="checkbox" class="form-check-input checkBox" asp-for="Conditions" /> <span>I Agree with all of your <span style="color: #564FFD">Terms & Conditions</span></span>
+                    <input type="checkbox" class="form-check-input checkBox" asp-for="Conditions" /> <span style="font-size: 11px;">I Agree with all of your <span style="color: #564FFD">Terms & Conditions</span></span>
                     <span asp-validation-for="Conditions" class="validationText text-danger"></span>
                 </div>
                 <div class="col-sm buttoncol">
@@ -72,3 +76,30 @@
     </div>
 
 </div>
+
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    const toggleRePassword = document.querySelector('#toggleRePassword');
+    const rePassword = document.querySelector('#rePassword');
+
+    togglePassword.addEventListener('click', function (e) {
+
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+    toggleRePassword.addEventListener('click', function (e) {
+
+        const type = rePassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        rePassword.setAttribute('type', type);
+
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+
+
+</script>
