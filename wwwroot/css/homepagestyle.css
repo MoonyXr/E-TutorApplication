@@ -2,7 +2,7 @@
 }
 
 .mainbody {
-   
+   padding: 0px;
     width: 100%;
 }
 .topdiv {
@@ -19,12 +19,12 @@
     padding-left: 15%;
 }
 .textSide h2, .textSide p, .textSide button{
-    margin: 10px;
+    margin: 10px 0px;
 }
 
 .textSide p {
     color: #4E5566;
-    font-size: 18px;
+    font-size: 21px;
 }
 
 .createAccount {
@@ -40,6 +40,7 @@
 .homepageimagecss{
     width: 45%;
     height: auto;
+    margin-top: -4px;
 }
 
 .mainsen {
@@ -49,3 +50,15 @@
     color: #1D2026;
 }
 
+.textSide h1{
+    font-size: 56px;
+}
+
+.browseTopCategory{
+    text-align: center;
+    width: 75%;
+}
+
+    .browseTopCategory h2, .browseAll {
+        padding: 25px;
+    }

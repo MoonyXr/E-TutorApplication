@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - E Tutor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/css/layoutsheet.css" rel="stylesheet" />
 </head>
@@ -32,7 +33,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Become an Instructor</a>
                         </li>
                     </ul>
-                    <div class="dropdown" style="margin-right: 20px;">
+                    <div class="dropdown navdropdown" style="margin-right: 20px;">
                         <select name="currency" id="currency">
                             <option value="usd">USD</option>
                             <option value="azn">AZN</option>
@@ -40,7 +41,7 @@
                         </select>
                     </div>
 
-                    <div class="dropdown" style="margin-right: 20px;">
+                    <div class="dropdown navdropdown" style="margin-right: 20px;">
                         <select name="language" id="language">
                             <option value="en">English</option>
                             <option value="az">Azerbaijani</option>
@@ -93,7 +94,7 @@
 
     </div>
     <hr style="border-top: 1px solid grey; margin-bottom: 0px;"/>
-    <div class="mainbody mostly-customized-scrollbar">
+    <div class="container-fluid mainbody">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

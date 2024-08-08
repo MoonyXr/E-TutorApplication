@@ -1,25 +1,15 @@
-﻿body {
-    box-sizing: border-box;
-    margin-bottom: 0px;
+﻿html {
+    scrollbar-width: none;
 }
-.mostly-customized-scrollbar {
-    display: block;
-    width: 10em;
-    overflow: auto;
-    padding: 1em;
-    margin: 1em auto;
+body {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+
 }
-
-    .mostly-customized-scrollbar::-webkit-scrollbar {
-        width: 5px;
-        height: 8px;
-        background-color: #aaa; /* or add it to the track */
-    }
-
-    /* Add a thumb */
-    .mostly-customized-scrollbar::-webkit-scrollbar-thumb {
-        background: #000;
-    }
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
 
 select {
     border: none;
@@ -45,6 +35,10 @@ header {
 
 .li {
     padding: 5px;
+}
+
+.nav-item a, .navdropdown {
+    font-size: 13px;
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
@@ -84,11 +78,12 @@ a:visited {
 }*/
 .rightsideElements{
     text-align: right;
-    right: 0px;
+    right: 10px;
     position: absolute;
 }
 .siteIcons img {
-    margin-left: 1%;
+    margin-left: 10px;
+    width: 19px;
 }
 
 .leftsideElements, .rightsideElements {
@@ -101,9 +96,9 @@ a:visited {
     }
 
 #createAccountBTN {
-    padding: 8px 30px;
-    font-weight: 500;
-    font-size: 16px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 14px;
     border-radius: 1px;
     border: 0px;
     color: #FF6636;
@@ -113,9 +108,9 @@ a:visited {
 
 #signInBtn {
     margin-left: 1%;
-    padding: 8px 30px;
-    font-weight: 500;
-    font-size: 16px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 14px;
     border-radius: 1px;
     border: 0px;
     color: white;
@@ -188,3 +183,4 @@ footer {
     margin-left: 59% !important;
     width: 135px;
 }
+
