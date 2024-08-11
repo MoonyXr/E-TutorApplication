@@ -1,5 +1,7 @@
 ﻿body {
     font-family: 'Inter';
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .loginHeaderHr hr {

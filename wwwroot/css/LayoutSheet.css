@@ -27,6 +27,8 @@ header {
 .navbarclass {
     background-color: #1D2026 !important;
     color: #8C94A3 !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .text-dark {
@@ -34,15 +36,15 @@ header {
 }
 
 .li {
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 .nav-item a, .navdropdown {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .topsitename {
@@ -67,10 +69,11 @@ a:visited {
     background-image: url('../images/magnifyingglass.svg');
     background-position: 8px 8px;
     background-repeat: no-repeat;
-    width: 25%;
+    background-size: 20px;
     font-size: 14px;
     padding: 8px 20px 8px 40px;
     border: 1px solid #ddd;
+    width: 300px;
 }
 
 /*.siteIcons {
@@ -147,7 +150,7 @@ footer a {
 footer {
     background-color: #1D2026;
     position: relative;
-    bottom: 0;
+    bottom: 0 !important;
     width: 100%;
     padding: 20px;
     overflow: hidden;
