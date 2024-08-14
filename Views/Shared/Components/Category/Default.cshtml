@@ -1,34 +1,46 @@
 ﻿<style>
-    .hidden {
-        display: none;
-    }
-
-    .filter-section {
-        margin: 20px;
-    }
-
-    .filter-button {
-        background-color: #f0f0f0;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .filter-content {
-        margin-top: 10px;
+    .filter-card {
         border: 1px solid #ddd;
-        padding: 10px;
+        padding: 15px;
+        width: 250px;
+    }
+
+    .filter-category h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .filter-category ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .filter-category li {
+        margin-bottom: 8px;
+    }
+
+    .filter-category input[type="checkbox"] {
+        margin-right: 8px;
+    }
+
+    .filter-category .count {
+        font-size: 12px;
+        color: #888;
     }
 </style>
-<div class="filter-section">
-    <h3>Category</h3>
-    <ul>
-        @foreach (var category in Model)
-        {
-            <li>
-                <input type="checkbox" id="@category.Name" name="categories" value="@category.Name">
-                <label for="@category.Name">@category.Name (@category.Count)</label>
-            </li>
-        }
-    </ul>
+
+<div class="filter-card">
+    @foreach (var category in Model)
+    {
+        <div class="filter-category">
+            <h4>@category.Name</h4>
+            <ul>
+                <li>
+                        <input type="checkbox" id="" />
+                        <label for=""></label>
+                        <span class="count"></span>
+                    </li>
+            </ul>
+        </div>
+    }
 </div>

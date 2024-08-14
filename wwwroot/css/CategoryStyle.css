@@ -2,7 +2,7 @@
     font-family: 'Inter';
 }
 
-.categoriesSearch, .courseList {
+.categoriesSearch{
     margin-top: 30px;
     display: flex;
     width: 70%;
@@ -140,13 +140,12 @@
 .courseList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    gap: 10px;
 }
 .categoriesbottomLine {
     margin-left: auto;
     margin-right: auto;
-    width: 66%;
+    width: 67%;
     margin-top: 20px;
     color: #E9EAF0;
     height: 2px!important;
@@ -208,4 +207,16 @@
 }
 #filterContainer {
     display: none;
+}
+
+.CoursesAndCategories{
+    width: 67%;
+    display: flex;
+    padding: 0px;
+}
+
+.courseList{
+    margin: 20px  0px;
+    width: 100%;
+
 }

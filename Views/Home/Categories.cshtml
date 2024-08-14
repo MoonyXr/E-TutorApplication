@@ -30,72 +30,81 @@
     </div>
 </div>
 <hr class="categoriesbottomLine" />
+<div class="container CoursesAndCategories">
 
-<div id="filterContainer">
-     @await Component.InvokeAsync("Category") 
-</div>
+    <div id="filterContainer">
+        @await Component.InvokeAsync("Category")
+    </div>
 
-<div class="container courseList">
-    @foreach(var item in Model)
-    {
-        <div class="card">
-            <img src=@item.Url alt="Course Image">
-            <div class="card-content">
-                <div class="card-content-header">
-                    <p>@item.CategoryName</p>
-
-                    <div class="price">$@item.Price</div>
-                </div>
-                <h6>@item.CourseName</h6>
-            </div>
-            <div class="card-footer">
-                <div class="rating">
-                    <i class="fas fa-star"></i><span>@item.Rating</span>
-                </div>
-                <div class="students">
-                    <img class="faUser" src="~/images/user.svg" /> <span>@item.StudentCount <span class="insidespan">students</span></span>
-                </div>
-            </div>
-        </div>
-    }
-    
-
-</div>
-
-<div class="pagination-container">
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
-                <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
-                    
-                    <img src="~/images/arrowleft.svg" id="arrowLeft" />
-                </a>
-            </li>
-            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    <div>
+        <div class="container courseList">
+            @foreach (var item in Model)
             {
-                <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("Categories", new { page = i })">@i.ToString("D2")</a>
-                </li>
+                <div class="card">
+                    <img src=@item.Url alt="Course Image">
+                    <div class="card-content">
+                        <div class="card-content-header">
+                            <p>@item.CategoryName</p>
+
+                            <div class="price">$@item.Price</div>
+                        </div>
+                        <h6>@item.CourseName</h6>
+                    </div>
+                    <div class="card-footer">
+                        <div class="rating">
+                            <i class="fas fa-star"></i><span>@item.Rating</span>
+                        </div>
+                        <div class="students">
+                            <img class="faUser" src="~/images/user.svg" /> <span>@item.StudentCount <span class="insidespan">students</span></span>
+                        </div>
+                    </div>
+                </div>
             }
-            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
-                <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
-                    
-                    <img src="~/images/arrowrightpaging.svg" id="arrowRight" />
-                </a>
-            </li>
-        </ul>
-    </nav>
+
+
+        </div>
+
+        <div class="pagination-container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                        <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+
+                            <img src="~/images/arrowleft.svg" id="arrowLeft" />
+                        </a>
+                    </li>
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("Categories", new { page = i })">@i.ToString("D2")</a>
+                        </li>
+                    }
+                    <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+
+                            <img src="~/images/arrowrightpaging.svg" id="arrowRight" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
 </div>
+
+
 <script>
     $(document).ready(function () {
 
         $("#filterButton").click(function () {
+            // var filterContainer = $("#filterContainer");
+            // if (filterContainer.is(":visible")) {
+            //     filterContainer.hide();
+            // } else {
+            //     filterContainer.show();
+            // }
             var filterContainer = $("#filterContainer");
-            if (filterContainer.is(":visible")) {
-                filterContainer.hide();
-            } else {
-                filterContainer.show();
-            }
+            filterContainer.toggle();
         });
     });
 
