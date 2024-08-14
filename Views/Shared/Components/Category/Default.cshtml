@@ -20,22 +20,15 @@
         padding: 10px;
     }
 </style>
-<div id="filterSection">
-    <button id="filterButton" class="filter-button">Filter</button>
-    <div id="filterContent" class="filter-content hidden">
-        <!-- Burada filter seçenəklərini əlavə edəcəksiniz -->
-        <label>
-            <input type="checkbox" id="webDevelopment"> Web Development
-        </label>
-        <label>
-            <input type="checkbox" id="mobileDevelopment"> Mobile Development
-        </label>
-        <!-- Digər filterlər də burada ola bilər -->
-    </div>
+<div class="filter-section">
+    <h3>Category</h3>
+    <ul>
+        @foreach (var category in Model)
+        {
+            <li>
+                <input type="checkbox" id="@category.Name" name="categories" value="@category.Name">
+                <label for="@category.Name">@category.Name (@category.Count)</label>
+            </li>
+        }
+    </ul>
 </div>
-<script>
-    document.getElementById("filterButton").addEventListener("click", function () {
-        var filterContent = document.getElementById("filterContent");
-        filterContent.classList.toggle("hidden");
-    });
-</script>

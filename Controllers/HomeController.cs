@@ -1,8 +1,10 @@
+using E_TutorApplicationFront.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WebApplication1.Models;
+using E_TutorApplicationFront.Models;
+using E_TutorApplicationFront.ViewComponents;
 
-namespace WebApplication1.Controllers
+namespace E_TutorApplicationFront.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,10 +26,43 @@ namespace WebApplication1.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Categories()
+        public IActionResult Categories(int page = 1, int pageSize = 20)
         {
+            var courses = new List<CoursesViewModel>()
+            {
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.2 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.3 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =4.5 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+                new CoursesViewModel{ CourseName = "Learn Python Programming Masterclass", CategoryName = "IT & Software", Rating =5.0 , StudentCount = "211,434", Price = 40, Url = "/images/CourseImages.svg"},
+            };
+                
+            var pagedCourses = courses.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-            return View();
+            ViewBag.TotalPages = Math.Ceiling((double)courses.Count() / pageSize);
+            ViewBag.CurrentPage = page;
+
+            return View(pagedCourses);
         }
+
     }
 }

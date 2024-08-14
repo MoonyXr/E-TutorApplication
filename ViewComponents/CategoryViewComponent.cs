@@ -5,17 +5,22 @@ namespace E_TutorApplicationFront.ViewComponents
 {
     public class CategoryViewComponent : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string selectedCategory = null)
         {
             List<Category> list = new List<Category>()
             {
-                new Category{Id = 1 , CategoryName = "Development", ImgUrl = ""},
-                new Category{Id = 2 , CategoryName = "Business", ImgUrl = ""},
-                new Category{Id = 3 , CategoryName = "Finance & Accounting", ImgUrl = ""},
-                new Category{Id = 4 , CategoryName = "IT & Software", ImgUrl = ""}
+                new Category{Id = 1 , Name = "Development", ImgUrl = ""},
+                new Category{Id = 2 , Name = "Business", ImgUrl = ""},
+                new Category{Id = 3 , Name = "Finance & Accounting", ImgUrl = ""},
+                new Category{Id = 4 , Name = "IT & Software", ImgUrl = ""}
             };
+            if (!string.IsNullOrEmpty(selectedCategory))
+            {
+                // Filter categories based on the selected category if needed
+                list = list.Where(c => c.Name == selectedCategory).ToList();
+            }
 
-            return View("~/Views/Shared/Components/Category/Default.cshtml", list); 
+            return View(list); 
         }
     }
 }

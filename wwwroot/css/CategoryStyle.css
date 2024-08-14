@@ -1,4 +1,5 @@
 ﻿body {
+    font-family: 'Inter';
 }
 
 .categoriesSearch, .courseList {
@@ -61,12 +62,11 @@
 }
 
 .card {
-    width: 230px;
+    width: 240px;
     background-color: white;
     border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: center;
     position:static;
 }
 
@@ -80,16 +80,16 @@
     padding: 15px;
 }
 
-    .card-content h4 {
+    .card-content h6 {
         margin: 0;
-        font-size: 20px;
+        font-size: 15px;
         color: #333;
     }
 
     .card-content p {
         margin: 5px 0;
         color: #882929;
-        font-size: 14px;
+        font-size: 12px;
         background-color: #FFF0F0;
     }
 
@@ -99,6 +99,7 @@
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #eaeaea;
+    background-color: white;
 }
 
     .card-footer .rating {
@@ -109,7 +110,8 @@
 
         .card-footer .rating span {
             margin-left: 5px;
-            color: #333;
+            color: #4E5566;
+            font-size: 12px;
         }
 
     .card-footer .students {
@@ -120,13 +122,14 @@
 
         .card-footer .students span {
             margin-left: 5px;
-            color: #333;
+            color: #4E5566;
+            font-size: 12px;
         }
 
 .card-content-header .price {
     margin-left: 100px;
-    font-size: 18px;
-    color: #e85d04;
+    font-size: 16px;
+    color: #FF6636;
     font-weight: bold;
 }
 
@@ -139,4 +142,70 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+}
+.categoriesbottomLine {
+    margin-left: auto;
+    margin-right: auto;
+    width: 66%;
+    margin-top: 20px;
+    color: #E9EAF0;
+    height: 2px!important;
+}
+
+.fa-star{
+    color: #FD8E1F;
+}
+
+.faUser {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.card-footer .students .insidespan {
+    color: #8C94A3;
+}
+
+
+
+
+.pagination-container {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.pagination .page-item .page-link {
+    color: #ff6b6b; 
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #FF6636;
+    border-color: #FF6636;
+    color: #fff;
+}
+
+.pagination .page-item:hover .page-link {
+    color: #ff6b6b; 
+}
+.pagination .page-item:hover .page-link .specialLink {
+    color: white; 
+}
+
+.pagination .page-link {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 10px;
+}
+
+.pagination .specialLink{
+    border: none;
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+}
+#filterContainer {
+    display: none;
 }

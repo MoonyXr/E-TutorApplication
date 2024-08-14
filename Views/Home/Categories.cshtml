@@ -1,14 +1,15 @@
-﻿
-
+﻿@model List<CoursesViewModel>
 <link href="~/css/categorystyle.css" rel="stylesheet" />
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="container categoriesSearch">
     <div class="container searchandfilter">
-        <div class="filter btn">
-            <img src="~/images/faders.svg" />
-            <label>Filter</label>
-            <span>3</span>
-        </div>
+
+            <button class="filter btn" id="filterButton" >
+                <img src="~/images/faders.svg" />
+                <label>Filter</label>
+                <span>3</span>
+
+            </button>
         <div>
             <input class="searchBar" type="text" id="searchBar" placeholder="What do you want learn..." />
         </div>
@@ -28,26 +29,31 @@
         </div>
     </div>
 </div>
+<hr class="categoriesbottomLine" />
+
+<div id="filterContainer">
+     @await Component.InvokeAsync("Category") 
+</div>
 
 <div class="container courseList">
-    @for(int i = 0 ; i < 10; i++)
+    @foreach(var item in Model)
     {
         <div class="card">
-            <img src="https://via.placeholder.com/300x200" alt="Course Image">
+            <img src=@item.Url alt="Course Image">
             <div class="card-content">
                 <div class="card-content-header">
-                    <p>IT & Software</p>
+                    <p>@item.CategoryName</p>
 
-                    <div class="price">$35</div>
+                    <div class="price">$@item.Price</div>
                 </div>
-                <h4>Learn Python Programming Masterclass</h4>
+                <h6>@item.CourseName</h6>
             </div>
             <div class="card-footer">
                 <div class="rating">
-                    <i class="fas fa-star"></i><span>4.0</span>
+                    <i class="fas fa-star"></i><span>@item.Rating</span>
                 </div>
                 <div class="students">
-                    <i class="fas fa-user"></i><span>211,434 students</span>
+                    <img class="faUser" src="~/images/user.svg" /> <span>@item.StudentCount <span class="insidespan">students</span></span>
                 </div>
             </div>
         </div>
@@ -56,6 +62,43 @@
 
 </div>
 
+<div class="pagination-container">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                    
+                    <img src="~/images/arrowleft.svg" id="arrowLeft" />
+                </a>
+            </li>
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Categories", new { page = i })">@i.ToString("D2")</a>
+                </li>
+            }
+            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                <a class="page-link specialLink" href="@Url.Action("Categories", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                    
+                    <img src="~/images/arrowrightpaging.svg" id="arrowRight" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $("#filterButton").click(function () {
+            var filterContainer = $("#filterContainer");
+            if (filterContainer.is(":visible")) {
+                filterContainer.hide();
+            } else {
+                filterContainer.show();
+            }
+        });
+    });
+
+</script>
 
 
-@* @await Component.InvokeAsync("Category") *@

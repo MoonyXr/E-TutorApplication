@@ -1,4 +1,4 @@
-namespace WebApplication1
+namespace E_TutorApplicationFront
 {
     public class Program
     {
@@ -29,7 +29,6 @@ namespace WebApplication1
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
             app.Run();
         }
     }
