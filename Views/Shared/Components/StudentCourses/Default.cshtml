@@ -1,0 +1,75 @@
+﻿@model List<StudentCoursesViewModel>
+<style>
+    .card {
+        width: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .card-content {
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .course-title {
+        font-size: 14px;
+        font-weight: normal;
+        color: #666;
+        margin: 0 0 10px;
+    }
+
+    .lesson-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin: 0 0 20px;
+    }
+
+    .watch-lecture-button {
+        background-color: #ffe4e1;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .watch-lecture-button:hover {
+            background-color: #ff7f50;
+            color: #fff;
+        }
+
+</style>
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    <div class="carousel-item @(i == 0 ? "active" : "")">
+        <div class="row">
+            @for (int j = i; j < i + 4 && j < Model.Count; j++)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="@Model[j].CourseImgUrl" alt="@Model[j].CourseName" class="card-image">
+                        <div class="card-content">
+                            <h3 class="course-title">@Model[j].CourseName</h3>
+                            <h4 class="lesson-title">@Model[j].CourseSectionName</h4>
+                            <button class="watch-lecture-button">Watch Lecture</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+
