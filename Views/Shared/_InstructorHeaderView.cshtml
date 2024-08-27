@@ -1,0 +1,107 @@
+﻿@{
+   
+    int hour = DateTime.Now.Hour;
+    string greeting;
+
+    switch (hour)
+    {
+        case int h when (h >= 5 && h < 12):
+            greeting = "Good Morning!";
+            break;
+        case int h when (h >= 12 && h < 17):
+            greeting = "Good Afternoon!";
+            break;
+        case int h when (h >= 17 && h < 21):
+            greeting = "Good Evening!";
+            break;
+        default:
+            greeting = "Good Night!";
+            break;
+    }
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-6 contentGreet">
+            <span>@greeting </span>
+            <h4>@ViewBag.PageName</h4>
+        </div>
+        <div class="col col-6 searchpanel">
+            
+            <div class="headersearchdiv">
+                <input class="searchBar" type="text" id="searchBar" placeholder="Search" />
+            </div>
+            <div class="notificationdiv">
+                <a id="notification">
+                    <img src="~/images/bell.svg" />
+                </a>
+            </div>
+            
+            <div class="profile-pic">
+                <img src="~/images/profilepicture.svg" alt="Profile Picture" class="profile-pic" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    #searchBar {
+        background-image: url('../images/magnifyingglass.svg');
+        background-position: 8px 8px;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        font-size: 14px;
+        padding: 8px 20px 8px 40px;
+        border: none;
+        width: 300px;
+        background-color: #F5F7FA;
+    }
+
+    .col{
+        padding: 0px;
+    }
+    .profile-pic {
+        width: 50px;
+    }
+
+    .searchpanel {
+        display: flex;
+        right: 0;
+        text-align: right;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    }
+
+    .contentGreet span{
+        font-size: 12px;
+    }
+    .contentGreet h4{
+        font-size: 17px;
+    }
+    .searchpanel div{
+        margin: 10px;
+    }
+
+    .contentGreet span{
+        color: #6E7485;
+        font-weight: 650;
+        font-size: 12px;
+    }
+
+    .notificationdiv{
+        background-color: #F5F7FA;
+        padding: 5px;
+    }
+    .notificationdiv img{
+        width: 24px;
+    }
+
+    .contentGreet h4{
+        font-weight: 650;
+    }
+</style>

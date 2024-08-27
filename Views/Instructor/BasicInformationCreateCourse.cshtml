@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = "_InstructorLayout";
+    ViewData["Title"] = "Create new course";
+}
+<div class="container mt-5">
+@Html.Partial("~/Views/Instructor/CreateANewCourseView.cshtml")
+    <div class="card mt-4 basicinformationform">
+        <div class="card-body">
+            <h5 class="card-title">Basic Information</h5>
+            <form>
+                <div class="form-group">
+                    <label for="courseTitle">Title</label>
+                    <input type="text" class="form-control" id="courseTitle" placeholder="Your course title" maxlength="80">
+                </div>
+                <div class="form-group">
+                    <label for="courseSubtitle">Subtitle</label>
+                    <input type="text" class="form-control" id="courseSubtitle" placeholder="Your course subtitle" maxlength="120">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="courseCategory">Course Category</label>
+                        <select id="courseCategory" class="form-control">
+                            <option selected>Select...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="courseSubCategory">Course Sub-category</label>
+                        <select id="courseSubCategory" class="form-control">
+                            <option selected>Select...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="courseTopic">Course Topic</label>
+                    <input type="text" class="form-control" id="courseTopic" placeholder="What is primarily taught in your course?">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="courseLanguage">Course Language</label>
+                        <select id="courseLanguage" class="form-control">
+                            <option selected>Select...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="subtitleLanguage">Subtitle Language (Optional)</label>
+                        <select id="subtitleLanguage" class="form-control">
+                            <option selected>Select...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="courseLevel">Course Level</label>
+                        <select id="courseLevel" class="form-control">
+                            <option selected>Select...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="courseDuration">Duration</label>
+                        <input type="text" class="form-control" id="courseDuration" placeholder="Course durations">
+                    </div>
+                </div>
+               
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <div class="form-group col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary">Save & Next</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .basicinformationform {
+        margin-top: 0px !important;
+    }
+
+    form label, form input{
+        font-size: 14px;
+    }
+
+    .form-row{
+        display: flex;
+    }
+
+    .form-control {
+        border-radius: 0px !important;
+        width: 90%;
+        margin: 10px;
+    }
+</style>

@@ -1,0 +1,248 @@
+﻿@{
+    ViewBag.PageName = "Settings";
+    Layout = "_InstructorLayout";
+    ViewData["Title"] = "Settings";
+}
+@model SettingsViewModel
+<style>
+
+    .settings-container, .sosial-profile {
+        width: 80%;
+        background-color: white;
+        padding: 40px;
+    }
+
+        .notificationandpassword{
+            width: 80%;
+            padding: 0px;
+            margin-top: 0px !important;
+        }
+
+    .notificationdiv, .changepassword {
+        width: 49%;
+        background-color: white;
+        padding: 40px;
+       
+    }
+
+    .notificationdiv {
+        margin-right: 20px;
+    }
+    .changepassword{
+        margin-left: 20px;
+    }
+    .phone-number-container {
+        display: flex;
+        align-items: center;
+        border: 1px solid #dcdcdc;
+        border-radius: 0px;
+        padding: 7px;
+    }
+
+    .country-code {
+        border: none;
+        background-color: transparent;
+        font-size: 1em;
+        color: #FF6636;
+        margin-right: 10px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .phone-number-input {
+        border: none;
+        width: 100%;
+        font-size: 1em;
+        outline: none;
+    }
+
+        .phone-number-input::placeholder {
+            color: #a9a9a9;
+        }
+
+    .settings-container input{
+        border-radius: 0px;
+    }
+
+    #firstName, #lastName{
+        width: 92%;
+        margin-left: 12px;
+    }
+
+    #submitsettingsinformation{
+        width: 150px;
+        border-radius: 0px;
+        background-color: #FF6636;
+        border: 0px;
+        padding: 10px 0px;
+        font-size: 13px;
+    }
+
+    .settings-container #submitsettingsinformation{
+        margin: 15px 12px;
+    }
+    .sosial-profile #submitsettingsinformation, .notificationdiv #submitsettingsinformation{
+        margin: 15px 0px;
+    }
+    
+
+    .settings-container h5, .sosial-profile  h5, .notificationdiv h5, .changepassword h5{
+        font-weight: 650;
+        padding: 10px 0px;
+    }
+
+    .settings-container input, .settings-container label, .settings-container select, .settings-container textarea, .sosial-profile input, .input-container, .input-container input, .sosial-profile label, .notificationdiv label, .notificationdiv input , .changepassword label, .changepassword input{
+        font-size: 13px !important;
+        border-radius: 0px !important;
+        border-color: #E9EAF0 !important;
+    }
+
+    .buttonandimage {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        width: 210px;
+        padding: 20px;
+    }
+
+    .text-center{
+        background-color: #F5F7FA;
+    }
+
+    .text-center small{
+        margin-top: 0px;
+        font-size: 10px;
+        padding: 3px 15px ;
+    }
+
+    .text-center button{
+        border: none;
+        padding: 3px;
+    }  
+    
+    .text-center button:hover{
+        border: none;
+                background-color: #F5F7FA;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+        .input-container img {
+            font-size: 20px;
+            color: #FF6636;
+            margin-right: 8px;
+            width: 17px;
+        }
+
+        .input-container input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-left: 2px solid #E9EAF0;
+            padding: 1px;
+            margin-left: 0px !important;
+        }
+
+            .input-container input::placeholder {
+                color: #bbb;
+            }
+
+    .sosial-profile .mb-3 {
+         padding-left: 0px;
+    }
+
+    .disposedcols .col {
+        width: 80%;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .notificationandpassword{
+        display: flex;
+    }
+    
+    .notificationdiv button {
+        background-color: #FF6636;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+
+    }
+
+    .notificationdiv input{
+        accent-color: #FF6636;
+        f
+        border-color: #FF6636;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+        input[type="checkbox"] + label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 20px;
+            display: inline-block;
+            color: #000; 
+        }
+
+
+            input[type="checkbox"] + label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 15px;
+                height: 15px;
+                border: 2px solid #FF6636; 
+                border-radius: 0px;
+                background-color: white; 
+                transition: all 0.2s;
+            }
+
+        input[type="checkbox"]:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 6px;
+            height: 12px;
+            border: solid white; 
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        input[type="checkbox"] + label:hover:before {
+            border-color: #FF6636; 
+        }
+
+        input[type="checkbox"]:checked + label:before {
+            background-color: #FF6636; 
+            border-color: #FF6636; 
+        }
+
+        .changepassword input{
+            padding: 10px;
+        }
+</style>
+@Html.Partial("_settingsPartialView", Model.SettingInfo)
+
+@Html.Partial("_sosialProfilePartialView", Model.SosialProfile)
+
+<div class="container mt-5 notificationandpassword">
+    @Html.Partial("_NotificationPartialView", Model.NotificationViewModel)
+    @Html.Partial("_changePasswordPartialView", Model.UpdatePasswordInstructorViewModel)
+</div>
+          

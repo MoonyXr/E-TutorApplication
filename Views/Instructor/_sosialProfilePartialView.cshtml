@@ -1,0 +1,78 @@
+﻿@model SosialProfile
+
+<div class="container mt-5 sosial-profile">
+    <form asp-action="SosialProfileUpdate" asp-controller="Instructor">
+        <div class="row">
+            <h5>Sosial profile</h5>
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <label>Personal Website</label>
+                <div class="input-container">
+                    <img src="~/images/globe.svg" />
+                    <input type="text" class="" placeholder="@(Model.PersonalWebsiteLink ?? " Personal website or portfolio url...")" asp-for="PersonalWebsiteLink">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <div class="row disposedcols">
+                    <div class="col">
+                        <label for="facebook" class="form-label">Facebook</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/facebook.svg" />
+                            <input type="text" class="form-control" id="facebookusername" placeholder="@(Model.FacebookUserName ?? "Username")" asp-for="FacebookUserName">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="facebook" class="form-label">Instagram</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/instagram.svg" />
+                            <input type="text" class="form-control" id="instagramusername" placeholder="@(Model.InstagramUserName ?? "Username")" asp-for="InstagramUserName">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="facebook" class="form-label">Linkedin</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/linkedin.svg" />
+                            <input type="text" class="form-control" id="linkedinusername" placeholder="@(Model.LinkedinUserName ?? "Username")" asp-for="LinkedinUserName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <div class="row disposedcols">
+                    <div class="col">
+                        <label for="facebook" class="form-label">X</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/twitter.svg" />
+                            <input type="text" class="form-control" id="twitterusername" placeholder="@(Model.XUserName ?? "Username")" asp-for="XUserName">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="facebook" class="form-label">Whatsapp</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/whatsapp.svg" />
+                            <input type="text" class="form-control" id="whatsappusername" placeholder="@(Model.WhatsappUserName ?? "Username")" asp-for=" WhatsappUserName"> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="facebook" class="form-label">Youtube</label>
+                        <div class="input-container">
+                            <img src="~/images/instructor/youtube.svg" />
+                            <input type="text" class="form-control" id="youtubeusername" placeholder="@(Model.YoutubeUserName ?? "Username")" asp-for="YoutubeUserName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit" id="submitsettingsinformation" class="btn btn-primary">Save Changes</button>
+
+        </div>
+
+    </form>
+</div>

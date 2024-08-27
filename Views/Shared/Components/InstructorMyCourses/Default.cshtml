@@ -1,0 +1,350 @@
+﻿@model List<CoursesViewModel>
+
+<style>
+    .card {
+        width: 246px;
+        background-color: white;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: static;
+        z-index: 1;
+    }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    .card-content {
+        padding: 15px;
+    }
+
+        .card-content h6 {
+            margin: 0;
+            font-size: 15px;
+            color: #333;
+        }H
+
+        .card-content p {
+            margin: 5px 0;
+            color: #882929;
+            font-size: 12px;
+            background-color: #FFF0F0;
+        }
+
+    .card-footer {
+        padding: 0px;
+        border-top: none;
+    }
+
+        .card-footer img{
+            width: 7px;
+        }
+    .card-footer .row{
+        display: flex;
+        padding: 4px;
+        align-items: center;
+        border-top: 1px solid #eaeaea;
+        background-color: white;
+    }
+
+        .card-footer .rating {
+
+            align-items: center;
+            color: #f4b400;
+        }
+
+            .card-footer .rating span {
+                margin-left: 5px;
+                color: #4E5566;
+                font-size: 12px;
+            }
+
+        .card-footer .students {
+            margin: 0px;
+            align-items: center;
+            color: #333;
+
+        }
+
+            .card-footer .students span {
+                margin-left: 5px;
+                color: #4E5566;
+                font-size: 10px;
+            }
+
+    .card-footer .price {
+        margin-left: 5px;
+        font-size: 16px;
+        color: #FF6636;
+        font-weight: bold;
+    }
+
+    .card-content-header {
+        display: flex;
+    }
+
+    .courseList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .categoriesbottomLine {
+        margin-left: auto;
+        margin-right: auto;
+        width: 67%;
+        margin-top: 20px;
+        color: #E9EAF0;
+        height: 2px !important;
+    }
+
+    .fa-star {
+        color: #FD8E1F;
+    }
+
+    .faUser {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .card-footer .students .insidespan {
+        color: #8C94A3;
+    }
+
+    .card-footer .students span{
+        margin: 0px;
+    }
+
+
+
+    .pagination-container {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .pagination .page-item .page-link {
+        color: #ff6b6b;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #FF6636;
+        border-color: #FF6636;
+        color: #fff;
+    }
+
+    .pagination .page-item:hover .page-link {
+        color: #ff6b6b;
+    }
+
+        .pagination .page-item:hover .page-link .specialLink {
+            color: white;
+        }
+
+    .pagination .page-link {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        padding: 10px;
+        margin: 0px 10px;
+    }
+
+    .pagination .specialLink {
+        border: none;
+    }
+
+    .page-item.disabled .page-link {
+        color: #ccc;
+    }
+
+    #filterContainer {
+        display: none;
+    }
+
+    .CoursesAndCategories {
+        width: 67%;
+        display: flex;
+        padding: 0px;
+    }
+
+    .courseList {
+        margin: 0px 0px;
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 0px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-button {
+        background-color: transparent;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    /* .card, .courseList, .container, body, html {
+        overflow: visible;
+        
+    } */
+
+    .dropdown-content {
+        position: fixed;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: none;
+    }
+
+        .dropdown-content .show {
+            display: block; 
+        }
+
+        .dropdown-content a {
+            font-size: 13px;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: white;
+        }
+
+            .dropdown-content a:hover {
+                background-color: #FF6636;
+                color: white;
+            }
+
+    .show {
+        display: block;
+    }
+    
+    .card-footer .price {
+        padding: 2px 10px;
+    }
+    
+    .card-footer .dropdown {
+        margin-left: 90px;
+    }
+
+        .card-footer .dropdown .dropdown-button{
+            font-size: 22px;
+            color: #8C94A3;
+
+        }
+</style>
+<div id="coursesCarousel" class="carousel">
+    <div class="container mt-5 courseList">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <img src=@item.Url alt="Course Image">
+                <div class="card-content">
+                    <div class="card-content-header">
+                        <p>@item.CategoryName</p>
+
+                    </div>
+                    <h6>@item.CourseName</h6>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col rating">
+                            <i class="fas fa-star"></i><span>@item.Rating</span>
+                        </div>
+                        <div class="col students">
+                            <img class="faUser" src="~/images/user.svg" /> <span>@item.StudentCount<span class="insidespan"> students</span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col price">$@item.Price</div>
+                        <div class="col dropdown">
+                            <button class="dropdown-button" data-dropdown-id="@item.CourseId" id="dropdown-button-@item.CourseId" onclick="OpenDetail(@item.CourseId)">...</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown-content" id="dropdown-@item.CourseId">
+                <a href="@Url.Action("ViewCourseDetail", "Instructor", new { courseId = item.CourseId })">View Details</a>
+                <a href="@Url.Action("DeleteCourse", "Instructor", new { courseId = item.CourseId })">Delete Course</a>
+            </div>
+
+        }
+
+
+    </div>
+
+    <div class="pagination-container">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="javascript:void(0)" onclick="loadCourses(@(ViewBag.CurrentPage - 1))">
+                        <img src="~/images/arrowleft.svg" id="arrowLeft" />
+                    </a>
+                </li>
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                        <a class="page-link" href="javascript:void(0)" onclick="loadCourses(@i)">@i.ToString("D2")</a>
+                    </li>
+                }
+                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                    <a class="page-link" href="javascript:void(0)" onclick="loadCourses(@(ViewBag.CurrentPage + 1))">
+                        <img src="~/images/arrowrightpaging.svg" id="arrowRight" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+<script>
+    function loadCourses(page) {
+        $.ajax({
+            url: '@Url.Action("InstructorMyCourses", "Instructor")',
+            type: 'GET',
+            data: { page: page },
+            success: function (data) {
+                $('#coursesCarousel').html(data);
+            }
+        });
+    }
+    
+
+    function OpenDetail(courseId) {
+        var dropdownID = "dropdown-" + courseId;
+        var buttonID = "dropdown-button-" + courseId;
+        var dropdown = document.getElementById(dropdownID);
+        var button = document.getElementById(buttonID);
+
+
+        var buttonRect = button.getBoundingClientRect();
+
+
+        dropdown.style.left = buttonRect.left + 'px'; 
+        dropdown.style.top = buttonRect.bottom + window.scrollY + 'px'; 
+
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+</script>

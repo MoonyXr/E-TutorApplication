@@ -1,0 +1,71 @@
+﻿@model SettingInfoViewModel;
+<div class="container mt-5 settings-container">
+    <form asp-action="SettingsInformationUpdate" asp-controller="Instructor">
+        <div class="row">
+            <div class="col-md-9">
+                <h5>Account Settings</h5>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Full name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="firstName" placeholder="@(Model.FirstName ?? " Enter your firstname")" asp-for="FirstName">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="lastName" placeholder="@(Model.LastName ?? " Enter your lastname")" asp-for="LastName"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="@(Model.LastName ?? " Enter your username")" asp-for="UserName">
+                </div>
+                <div class="mb-3">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <div class="phone-number-container">
+                        
+                        @if (ViewBag.Prefix != null)
+                        {
+                            <select class="country-code" asp-for="PhonePrefix">
+                                @foreach (int i in ViewBag.Prefix)
+                                {
+                                    <option value="+@i" selected>+@i</option>
+                                }
+                            </select>
+                        }
+                        <input type="text" class="phone-number-input" placeholder="@(Model.PhoneNumber ?? " Your Phone number...")" asp-for="PhoneNumber">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="mt-2 buttonandimage">
+                        @* <button class="btn btn-outline-secondary">
+                            <img src=@(Model.ProfileImageUrl ?? "https://via.placeholder.com/150") onclick="document.getElementById('profileImage').click();" class="" alt="Profile Photo">
+                            Upload Photo
+                        </button> *@
+                        <input type="file" id="profileImage" name="ProfileImage" style="display: none;" onchange="document.getElementById('profileImageForm').submit()" asp-for="ProfileImageUrl">
+                        <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('profileImage').click();">
+                            <img src="@(Model.ProfileImageUrl ?? "https://via.placeholder.com/150")" class="" alt="Profile Photo">
+                            Upload Photo
+                        </button>
+                    </div>
+                    <small class="text-muted d-block">Image size should be under 1MB and image ratio needs to be 1:1</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="@(Model.Tittle ?? " Your title, profession or small biography")" maxlength="50" asp-for="Tittle">
+            </div>
+            <div class="mb-3">
+                <label for="biography" class="form-label">Biography</label>
+                <textarea class="form-control" id="biography" rows="3" placeholder="@(Model.Biography ?? " Your title, profession or small biography")" asp-for="Biography"></textarea>
+            </div>
+            <button type="submit" id="submitsettingsinformation" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+</div>

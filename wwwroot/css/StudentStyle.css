@@ -5,9 +5,9 @@
     padding: 0px;
 }
 .StudentPage {
-    height: 300vh; /* Tam səhifə boyu */
+    height: 100vh;
     background: linear-gradient(to bottom, #FFEEE8 35%, white 30%);
-    padding: 65px;
+    padding: 25px;
     margin: 0px;
 }
 .containerDiv {
@@ -114,28 +114,20 @@
 }
 
 .coursesSection{
-    display: flex;
-    gap: 20px;
+    position: static;
+
 }
 
-.custom-carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+#courseCarousel {
+    position: static;
+}
+.caruselbuttons div{
+    text-align: end;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: #fee4e1; /* Light peach color */
-    border-radius: 5px;
-    padding: 5px;
+.caruselbuttons button {
+    background-color: #FFEEE8;
+    border: none;
+    padding: 3px;
+    position: static;
 }
-
-    .carousel-control-prev img,
-    .carousel-control-next img {
-        width: 20px;
-        height: 20px;
-    }

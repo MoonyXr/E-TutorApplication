@@ -1,0 +1,148 @@
+﻿@model InstructorDashboardViewModel
+
+<style>
+    .dashboadrBody {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+        .dashboadrBody .card {
+            padding: 5px;
+            border: none;
+            border-radius: 0px;
+            width: 250px;
+            padding: 15px;
+            background-color: white;
+
+        }
+
+        .dashboadrBody .content{
+            margin: 0px;
+            background-color: white;
+            height: 65px;
+            padding: 0px;
+        }
+
+        .dashboadrBody .card {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+
+        .dashboadrBody .content h2 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .dashboadrBody .content p {
+            font-size: 12px;
+            color: #4E5566;
+        }
+
+        .dashboadrBody img {
+            padding-right: 20px;
+        }
+
+        .dashboadrBody .icon{
+            width: 80px;
+            height: 60px;
+        }
+
+    .results {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .results h5, .enrolledCourses h5 {
+            padding: 25px 0px 20px 0px;
+            font-weight: 600;
+        }
+
+</style>
+
+<div class="results">
+    <div class="dashboadrBody">
+        <div class="card">
+            <div class="icon">
+
+                <img src="~/images/instructor/videoico.svg" />
+            </div>
+            <div class="content">
+                <h2>957</h2>
+                <p>Enrolled Courses</p>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="icon">
+                <img src="~/images/instructor/taskdoneico.svg" />
+            </div>
+            <div class="content">
+                <h2>6</h2>
+                <p>Active Courses</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <img src="~/images/instructor/peoplesico.svg" />
+            </div>
+            <div class="content">
+                <h2>951</h2>
+                <p>Complited Courses</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <img src="~/images/instructor/avardico.svg" />
+            </div>
+            <div class="content">
+                <h2>241</h2>
+                <p>Course Instructors</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="results">
+    <div class="dashboadrBody">
+        <div class="card">
+            <div class="icon">
+                <img src="~/images/instructor/personico.svg" />
+            </div>
+            <div class="content">
+                <h2>1,674</h2>
+                <p>Students</p>
+            </div>
+        </div>
+        <div class="card ">
+            <div class="icon">
+                <img src="~/images/instructor/notebookico.svg" />
+            </div>
+            <div class="content">
+                <h2>3</h2>
+                <p>Online Courses</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <img src="~/images/instructor/cardico.svg" />
+            </div>
+            <div class="content">
+                <h2>$7,467,231</h2>
+                <p>USD Total Earning</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <img src="~/images/instructor/collectionico.svg" />
+            </div>
+            <div class="content">
+                <h2>56,738</h2>
+                <p>Course Sold</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.PageName = "My Courses";
+    Layout = "_InstructorLayout";
+    ViewData["Title"] = "My Courses";
+}
+<style>
+    #myCoursesSearchBar {
+        background-image: url('../images/magnifyingglass.svg');
+        background-position: 8px 8px;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        font-size: 14px;
+        padding: 8px 20px 8px 40px;
+        border: none;
+        width: 350px;
+    }
+
+    .coursesfilter{
+        width: 86%;
+        padding: 0px 20px ;
+    }
+
+        .coursesfilter col-2 {
+            margin-right: 10px;
+        }
+
+    .dropdown{
+        background-color: white;
+        width: 90%;
+    }
+    .dropdown button{
+        width: 100%;
+    }
+
+    .coursesfilter .col{
+        margin-left: 15px;
+    }
+
+    .dropdown-toggle::after{
+        margin-left: 80px;
+    }
+
+    .coursesfilter .col button{
+        font-size: 14px;
+    }
+
+    .coursesfilter .col label{
+        font-size: 10px;
+        color: #4E5566;
+    }
+</style>
+<div class="container mt-5 coursesfilter">
+    <div class="row">
+        <div class="col">
+            <label>Search: </label>
+            <div><input class="searchBar" type="text" id="myCoursesSearchBar" placeholder="Search in your courses..." /></div>
+        </div>
+        <div class="col">
+            <label>Sort By:</label>
+            <div class="dropdown">
+                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Latest
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Option 1</a>
+                    <a class="dropdown-item" href="#">Option 2</a>
+                    <a class="dropdown-item" href="#">Option 3</a>
+                </div>
+            </div>
+        </div>
+         
+        <div class="col"> 
+            <label>Category: </label>
+            <div class="dropdown">
+                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Option 1</a>
+                    <a class="dropdown-item" href="#">Option 2</a>
+                    <a class="dropdown-item" href="#">Option 3</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col"> 
+            <label>Rating: </label>
+            <div class="dropdown">
+                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    4 Star & Up
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Option 1</a>
+                    <a class="dropdown-item" href="#">Option 2</a>
+                    <a class="dropdown-item" href="#">Option 3</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        @await Component.InvokeAsync("InstructorMyCourses", new { page = 1 })
+    </div>
+</div>

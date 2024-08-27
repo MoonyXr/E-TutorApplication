@@ -1,0 +1,122 @@
+﻿
+@{
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+}
+<div class="sidebar">
+    
+    <div class="logo">
+        <img src="~/images/graduationcap.svg" />
+        <h3>E-tutor</h3>
+    </div>
+    <hr />
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Instructor" && currentAction == "Dashboard" ? "active" : "")" href="@Url.Action("Dashboard", "Instructor")">
+                <img src="~/images/chartbar.svg" />
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Instructor" && currentAction == "BasicInformationCreateCourse" ? "active" : "")" href="@Url.Action("BasicInformationCreateCourse", "Instructor")">
+                <img src="~/images/pluscircle.svg" />
+                <span>Create New Course</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Instructor" && currentAction == "MyCourses" ? "active" : "")" href="@Url.Action("MyCourses", "Instructor")">
+                <img src="~/images/stack.svg" />
+                <span>My Courses</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Earning" && currentAction == "Index" ? "active" : "")" href="@Url.Action("Index", "Earning")">
+                <img src="~/images/creditcard.svg" />
+                <span>Earning</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Message" && currentAction == "Index" ? "active" : "")" href="@Url.Action("Index", "Message")">
+                <img src="~/images/chatcircledots.svg" />
+                <span>Message</span>
+                <span class="badge badge-pill badge-danger">3</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @(currentController == "Instructor" && currentAction == "Settings" ? "active" : "")" href="@Url.Action("Settings", "Instructor")">
+                <img src="~/images/gear.svg" />
+                <span>Settings</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .logo{
+        display: flex;
+        padding: 15px 15px 5px 15px;
+    }
+
+    .logo img{
+        width: 25px;
+        margin: -2px 5px 10px 0px;
+    }
+    .sidebar {
+        width: 250px;
+        background-color: #1D2026;
+        color: #fff;
+        height: 100vh;
+        padding: 0px;
+    }
+
+    .sidebar hr{
+        margin: 0px;
+            color: #8C94A3;
+    }
+
+        .sidebar .logo h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .sidebar .nav-link {
+            color: #fff;
+            margin: 0px 0;
+            font-size: 16px;
+            padding: 10px 15px;
+        }
+
+            .sidebar .nav-link.active {
+                background-color: #ff6b35;
+                color: #fff;
+
+            }
+
+                .sidebar .nav-link.active img{
+                    filter: brightness(0) invert(100%);
+                    fill: white;
+                }
+                .sidebar .nav-link.active span{
+                    color: white;
+                }
+
+            .sidebar .nav-link i {
+                margin-right: 10px;
+            }
+
+    .badge-danger {
+        background-color: #ff6b35;
+    }
+
+    .sidebar li img{
+        color: #8C94A3;
+        width: 20px;
+        /* filter: invert(36%) sepia(100%) saturate(1331%) hue-rotate(326deg) brightness(101%) contrast(101%); */
+    }
+
+    .sidebar li a span{
+        color: #8C94A3;
+        font-size: 13px;
+    }
+</style>

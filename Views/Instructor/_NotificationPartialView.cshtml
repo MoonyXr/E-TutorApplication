@@ -1,0 +1,37 @@
+﻿@model InstructorSettingsNotificationViewModel
+
+<div class="container mt-5 notificationdiv">
+    <h5>Notifications</h5>
+    <form asp-action="NotificationSettingsUpdate" asp-controller="Instructor">
+        <div>
+            <input type="checkbox" id="notifyPurchase" name="notifyPurchase" asp-for="WhoBuyMyCourse">
+            <label for="notifyPurchase">I want to know who buy my course.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyReview" name="notifyReview" asp-for="WhoWriteReviews">
+            <label for="notifyReview">I want to know who write a review on my course.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyComment" name="notifyComment" asp-for="WhoCommentedMyLecture">
+            <label for="notifyComment">I want to know who commented on my lecture.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyDownloadNotes" name="notifyDownloadNotes" asp-for="WhoDownloadMyLecture">
+            <label for="notifyDownloadNotes">I want to know who download my lecture notes.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyReply" name="notifyReply" asp-for="WhoRepliedMyComment">
+            <label for="notifyReply">I want to know who replied on my comment.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyProfileVisits" name="notifyProfileVisits" asp-for="HowManyPeopleVisit">
+            <label for="notifyProfileVisits">I want to know daily how many people visited my profile.</label>
+        </div>
+        <div>
+            <input type="checkbox" id="notifyDownloadAttachment" name="notifyDownloadAttachment" asp-for="WhoDownloadAttachFile">
+            <label for="notifyDownloadAttachment">I want to know who download my lecture attach file.</label>
+        </div>
+        <button type="submit" id="submitsettingsinformation" class="btn btn-primary">Save Changes</button>
+
+    </form>
+</div>
