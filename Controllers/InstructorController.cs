@@ -105,7 +105,26 @@ namespace E_TutorApplicationFront.Controllers
         
         public IActionResult ViewCourseDetail(int courseId)
         {
-            return View();
+            CourseDetailViewModel viewModel = new CourseDetailViewModel()
+            {
+                CourseId = courseId,
+                CourseImgURL = "~/images/instructor/coursethumbnail.svg",
+                Title= "2021 Complete Python Bootcamp From Zero to Hero in Python",
+                Description = "3 in 1 Course: Learn to design websites with Figma, build with Webflow, and make a living freelancing.",
+                UploadedDate = DateTime.Now.AddMonths(-3).Date,
+                LastUpdateDate = DateTime.Now.Date,
+                CoursePrice = 13.99,
+                CourseRating = 4.8,
+                CourseRevenue = 131800455.82,
+                Creators = new List<CourseCreators>()
+                {
+                    new CourseCreators{InstructorId = 1, InstructorName = "Kevin" , InstructorSurname = "Gilbert", InstructorImagUrl = "~/images/instructor/kevin.svg"},
+                    new CourseCreators{InstructorId = 2, InstructorName = "Kristin" , InstructorSurname = "Watson", InstructorImagUrl = "~/images/instructor/gilbert.svg"}
+                }
+            };
+
+
+            return View(viewModel);
         }
 
         public void DeleteCourse(int courseId)

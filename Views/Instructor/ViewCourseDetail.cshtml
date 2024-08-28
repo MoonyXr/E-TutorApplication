@@ -1,0 +1,114 @@
+﻿@model CourseDetailViewModel
+@{
+    ViewBag.PageName = "My Courses";
+    Layout = "_InstructorLayout";
+    ViewData["Title"] = "My Courses";
+}
+<style>
+    .courseDetails{
+        padding: 40px;
+        background-color: white;
+    }
+
+    .courseDetailscontainer{
+        width: 86%;
+    }
+    .courseDetails .col-4 img{
+        width: 300px;
+    }
+
+    .courseDetails .col-7{
+        margin-left: 10px;
+    }
+
+    .created-by {
+        display: flex;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        color: #555;
+    }
+
+    .avatars {
+        display: flex;
+        position: relative;
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid white;
+        position: absolute;
+    }
+
+        .avatar:first-child {
+            left: 0;
+            z-index: 2;
+        }
+
+        .avatar:last-child {
+            left: 15px;
+            z-index: 1;
+        }
+
+    .text {
+        margin-left: 45px;
+    }
+
+    .names {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container mt-5 courseDetailscontainer">
+    <div class="container courseDetails">
+        <div class="row">
+            <div class="col col-4">
+                <img src=@Model.CourseImgURL />
+            </div>
+            <div class="col col-7">
+                <div class="row">
+                    <div class="col">
+                        <span>Uploaded</span><span class="data-span"> @Model.UploadedDate</span>
+                        <span>Last Updated</span><span class="data-span"> @Model.LastUpdateDate</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2>@Model.Title</h2>\
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span>@Model.Description</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="created-by">
+                            <div class="avatars">
+                                @foreach (var item in Model.Creators)
+                                {
+                                    <img src=@item.InstructorImagUrl alt="Kevin Gilbert" class="avatar">
+                                }
+                            </div>
+                            <div class="text">
+                                <span>Created by:</span>
+                                @foreach (var item in Model.Creators)
+                                {
+                                    <span class="names">@item.InstructorName @item.InstructorSurname • </span>
+                                }
+                            </div>
+                        </div>
+                       
+                        
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
