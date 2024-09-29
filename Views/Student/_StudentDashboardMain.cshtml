@@ -1,0 +1,39 @@
+﻿
+<div class="container linksAndResults">
+    <partial action="StudentDashboard"></partial>
+    @Html.Partial("_StudentDashboard")
+</div>
+
+<div class="container linksAndResults coursesSection">
+    <div id="courseCarousel" class="carousel slide">
+        <div class="row">
+
+            <div class="col col-sm-6">
+                <h4><b>Let’s start learning, Kevin</b></h4>
+            </div>
+            <div class="col col-sm-6 caruselbuttons">
+                <div class="carousel-controls">
+                    <button class="carousel-control-btn" id="prevBtn" data-target="#courseCarousel" data-slide="prev">
+                        <img src="~/images/arrowleft.svg" />
+
+                    </button>
+                    <button class="carousel-control-btn" id="nextBtn" data-target="#courseCarousel" data-slide="next">
+                        <img src="~/images/arrowright.svg" />
+
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    @await Component.InvokeAsync("StudentCourses")
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

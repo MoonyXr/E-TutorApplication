@@ -1,0 +1,391 @@
+﻿@model CourseDetailViewModel
+<style>
+    .lineargraph {
+        width: 48%;
+        margin-top: 30px!important;
+        background-color: white;
+    }
+
+    .ratingsquare{
+        width: 150px;
+        height: 150px;
+        background-color: #FFF2E5;
+        padding: 20px;
+    }
+
+    .graph-container {
+        width: 280px;
+        height: 150px;
+        border: 1px solid #fff8f3;
+        background-color: white;
+        padding: 0px;
+        margin: 0 0 0 20px;
+
+    }
+
+    canvas {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .lineargraph .tablefooter, .lineargraph .tablebody,  .lineargraph .tablebody {
+        flex-wrap: nowrap;
+        margin: 20px 0px 20px 0px;
+        padding: 0px 20px;
+    }
+
+    .tableheader {
+        border-bottom: 1px solid #E9EAF0;
+    }
+    .tablefooter {
+        padding-top: 20px !important;
+        border-top: 1px solid #E9EAF0;
+    }
+
+
+    .tablebody {
+        padding: 20px;
+    }
+
+    .lineargraph .ratingcol{
+        vertical-align: middle;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+        background-color: #e5e5e5;
+        border-radius: 0px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        width: 0%; 
+        height: 5px; 
+        background-color: #FD8E1F; 
+        position: relative;
+        border-radius: 0px;
+    }
+
+    .colstartitle{
+        padding: 3px 7px 0px 7px;
+    }
+   
+    .percentage{
+        font-weight: bold;
+        font-size: 12px;
+        padding-top: 3px;
+    }
+
+    .progress-col{
+        padding: 13px 0px;
+    }
+
+    .progress-col-next{
+        padding: 11px 0px;
+    }
+</style>
+<div class="mt-3 lineargraph">
+    <div class="row tableheader">
+        <div class="col">
+            <h6>Overall Course Rating</h6>
+        </div>
+        <div class="col text-end">
+            <p class="timedescription">This Week</p>
+        </div>
+    </div>
+
+    <div class="row tablebody">
+        <div class="col col-4">
+            <div class="ratingsquare">
+                <h2>3.4</h2>
+                <div class="col text-center ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="halfGrad">
+                                    <stop offset="@((Model.CourseRating % 1) * 100)%" stop-color="#FD8E1F" />
+                                    <stop offset="@((Model.CourseRating % 1) * 100)%" stop-color="lightgray" />
+                                </linearGradient>
+                            </defs>
+
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= (int)Model.CourseRating)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                                }
+                                else if (i == (int)Model.CourseRating + 1 && Model.CourseRating % 1 != 0)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="url(#halfGrad)" />
+                                }
+                                else
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="lightgray" />
+                                }
+                            }
+                        </svg>
+                    </div>
+                </div>
+
+                <span class="names">Course Rating</span>
+            </div>
+        </div>
+        <div class="col col-8">
+            <div class="graph-container">
+                <canvas id="linearGraph" width="280" height="150"></canvas>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row tablefooter">
+        <div class="col col-4">
+            <div class="row">
+                <div class="col  align-middle ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+
+
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                            }
+                        </svg>
+                    </div>
+                </div>
+                <div class="col colstartitle">
+
+                    <span class="timedescription">5 Star</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col   align-middle ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i < 5)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                                }
+                                else
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="none" stroke="#FD8E1F" stroke-width="1" />
+                                }
+                            }
+                        </svg>
+                    </div>
+                </div>
+                <div class="col colstartitle">
+                    <span class="timedescription">4 Star</span>
+                </div>
+            </div>
+           <div class="row">
+                <div class="col  align-middle ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i < 4)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                                }
+                                else
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="none" stroke="#FD8E1F" stroke-width="1" />
+                                }
+                            }
+                        </svg>
+                    </div>
+                </div>
+                <div class="col align-middle  colstartitle">
+                    <span class="timedescription">3 Star</span>
+                </div>
+           </div>
+            <div class="row ">
+                <div class="col align-middle ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i < 3)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                                }
+                                else
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="none" stroke="#FD8E1F" stroke-width="1" />
+                                }
+                            }
+                        </svg>
+                    </div>
+                </div>
+                <div class="col  colstartitle">
+                    <span class="timedescription">2 Star</span>
+                </div>
+            </div>
+           <div class="row">
+                <div class="col align-middle ratingcol">
+                    <div class="rating">
+                        <svg width="100" height="20" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i < 2)
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="#FD8E1F" />
+                                }
+                                else
+                                {
+                                    <polygon points="@($"{20 * (i - 1) + 10},1 {20 * (i - 1) + 12},7 {20 * (i - 1) + 18},7 {20 * (i - 1) + 13},10 {20 * (i - 1) + 15},16 {20 * (i - 1) + 10},12 {20 * (i - 1) + 5},16 {20 * (i - 1) + 7},10 {20 * (i - 1) + 2},7 {20 * (i - 1) + 8},7")" fill="none" stroke="#FD8E1F" stroke-width="1" />
+                                }
+                            }
+                        </svg>
+                    </div>
+                </div>
+                <div class="col  colstartitle">
+                    <span class="timedescription">1 Star</span>
+                </div>
+           </div>
+          
+        </div>
+        <div class="col col-8">
+            <div class="row">
+                <div class="col col-9 progress-col">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressbar5">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3 percentage">
+
+                    <div class="percentage colstartitle">@Model.Score.Percentage5Star %</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-9 progress-col-next">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressbar4">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3 percentage">
+
+                    <div class="percentage colstartitle">@Model.Score.Percentage4Star %</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-9 progress-col-next">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar " id="progressbar3">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3 percentage">
+
+                    <div class="percentage colstartitle">@Model.Score.Percentage3Star %</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-9 progress-col-next">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressbar2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3 percentage">
+
+                    <div class="percentage colstartitle">@Model.Score.Percentage2Star %</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-9 progress-col-next">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressbar1">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-3 percentage">
+
+                    <div class="percentage colstartitle">@Model.Score.Percentage1Star %</div>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+      
+</div>
+
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('linearGraph');
+        var ctx = canvas.getContext('2d');
+
+        ctx.strokeStyle = '#f97316';
+        ctx.lineWidth = 2;
+        ctx.fillStyle = '#fff8f3'; 
+
+        var maxValue = 5;
+        var minValue = 1;
+
+        // var dataPoints = [4.5, 4.0, 2.8, 4.5, 3.2, 4.8, 3.6, 4.1, 2.2, 4.9, 3.0, 4.0, 4.8, 3.6, 4.1, 2.2, 4.9, 3.0, 4.0];
+        var dataPoints = @Html.Raw(Json.Serialize(Model.CourseRatings));
+
+        var canvasHeight = canvas.height;
+        var canvasWidth = canvas.width;
+
+        var yScale = (canvasHeight - 20) / (maxValue - minValue);
+        var xSpacing = canvasWidth / (dataPoints.length - 1);
+
+        ctx.beginPath();
+
+        ctx.moveTo(0, canvasHeight - (dataPoints[0] - minValue) * yScale);
+
+        for (var i = 0; i < dataPoints.length - 1; i++) {
+            var xMid = (xSpacing * i + xSpacing * (i + 1)) / 2;
+            var yMid = canvasHeight - ((dataPoints[i] + dataPoints[i + 1]) / 2 - minValue) * yScale;
+            ctx.quadraticCurveTo(xSpacing * i, canvasHeight - (dataPoints[i] - minValue) * yScale, xMid, yMid);
+        }
+
+        ctx.quadraticCurveTo(xSpacing * (dataPoints.length - 1), canvasHeight - (dataPoints[dataPoints.length - 1] - minValue) * yScale, xSpacing * (dataPoints.length - 1), canvasHeight - (dataPoints[dataPoints.length - 1] - minValue) * yScale);
+
+        ctx.lineTo(xSpacing * (dataPoints.length - 1), canvasHeight);
+
+        ctx.lineTo(0, canvasHeight);
+
+        ctx.closePath();
+
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvasHeight - (dataPoints[0] - minValue) * yScale);
+        for (var i = 0; i < dataPoints.length - 1; i++) {
+            var xMid = (xSpacing * i + xSpacing * (i + 1)) / 2;
+            var yMid = canvasHeight - ((dataPoints[i] + dataPoints[i + 1]) / 2 - minValue) * yScale;
+            ctx.quadraticCurveTo(xSpacing * i, canvasHeight - (dataPoints[i] - minValue) * yScale, xMid, yMid);
+        }
+        ctx.quadraticCurveTo(xSpacing * (dataPoints.length - 1), canvasHeight - (dataPoints[dataPoints.length - 1] - minValue) * yScale, xSpacing * (dataPoints.length - 1), canvasHeight - (dataPoints[dataPoints.length - 1] - minValue) * yScale);
+        ctx.stroke();
+
+        var progressbar1 = document.getElementById('progressbar1');
+        var progressbar2 = document.getElementById('progressbar2');
+        var progressbar3 = document.getElementById('progressbar3');
+        var progressbar4 = document.getElementById('progressbar4');
+        var progressbar5 = document.getElementById('progressbar5');
+
+        var progressesbar1values = @Html.Raw(Json.Serialize(Model.Score.Percentage1Star));
+        var progressesbar2values = @Html.Raw(Json.Serialize(Model.Score.Percentage2Star));
+        var progressesbar3values = @Html.Raw(Json.Serialize(Model.Score.Percentage3Star));
+        var progressesbar4values = @Html.Raw(Json.Serialize(Model.Score.Percentage4Star));
+        var progressesbar5values = @Html.Raw(Json.Serialize(Model.Score.Percentage5Star));
+
+        progressbar1.style.width = progressesbar1values + "%";
+        progressbar2.style.width = progressesbar2values + "%";
+        progressbar3.style.width = progressesbar3values + "%";
+        progressbar4.style.width = progressesbar4values + "%";
+        progressbar5.style.width = progressesbar5values + "%";
+    };
+
+  
+
+</script>

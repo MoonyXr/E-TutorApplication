@@ -108,19 +108,45 @@ namespace E_TutorApplicationFront.Controllers
             CourseDetailViewModel viewModel = new CourseDetailViewModel()
             {
                 CourseId = courseId,
-                CourseImgURL = "~/images/instructor/coursethumbnail.svg",
+                CourseImgURL = "/images/instructor/coursethumbnail.svg",
                 Title= "2021 Complete Python Bootcamp From Zero to Hero in Python",
                 Description = "3 in 1 Course: Learn to design websites with Figma, build with Webflow, and make a living freelancing.",
                 UploadedDate = DateTime.Now.AddMonths(-3).Date,
                 LastUpdateDate = DateTime.Now.Date,
                 CoursePrice = 13.99,
-                CourseRating = 4.8,
+                CourseRating = 3.4,
                 CourseRevenue = 131800455.82,
                 Creators = new List<CourseCreators>()
                 {
-                    new CourseCreators{InstructorId = 1, InstructorName = "Kevin" , InstructorSurname = "Gilbert", InstructorImagUrl = "~/images/instructor/kevin.svg"},
-                    new CourseCreators{InstructorId = 2, InstructorName = "Kristin" , InstructorSurname = "Watson", InstructorImagUrl = "~/images/instructor/gilbert.svg"}
+                    new CourseCreators{InstructorId = 1, InstructorName = "Kevin" , InstructorSurname = "Gilbert", InstructorImagUrl = "/images/instructor/kevin.svg"},
+                    new CourseCreators{InstructorId = 2, InstructorName = "Kristin" , InstructorSurname = "Watson", InstructorImagUrl = "/images/instructor/gilbert.svg"}
+                },
+                CourseDetailedInfo = new CourseDetailedInformation
+                {
+                    AtachFile = 142,
+                    AtachFileSize = 14.4, 
+                    CourseLevel = "Beginner",
+                    LectureCount = 1957,
+                    LectureSize = 219.3,
+                    TotalComments = 429,
+                    StudentsEnrolled = 2023,
+                    CourseLanguage = "Mandarin",
+                    Hours = "19:37:51",
+                    StudentsViewed = 42919
+                } ,
+                CourseRatings = new List<int> 
+                {
+                    4, 4, 2, 4, 3, 4, 3, 4, 2, 4, 3, 4, 4, 3, 4, 2, 4, 3, 4
+                },
+                Score = new CourseRatingScore
+                {
+                    Percentage1Star = 0,
+                    Percentage2Star = 1,
+                    Percentage3Star = 5,
+                    Percentage4Star = 27,
+                    Percentage5Star = 67
                 }
+
             };
 
 

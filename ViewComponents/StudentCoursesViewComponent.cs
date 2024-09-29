@@ -13,7 +13,7 @@ namespace E_TutorApplicationFront.ViewComponents
                 new StudentCoursesViewModel {CourseId = 1, CourseName = "Reiki Level I, II and Master/Teacher Program", CourseSectionName = "1. Intorductions" , CourseWatchPercentage = 0, CourseImgUrl = "/images/CourseImages.svg"},
                 new StudentCoursesViewModel {CourseId = 1, CourseName = "Reiki Level I, II and Master/Teacher Program", CourseSectionName = "1. Intorductions" , CourseWatchPercentage = 0, CourseImgUrl = "/images/CourseImages.svg"},
                 new StudentCoursesViewModel {CourseId = 1, CourseName = "Reiki Level I, II and Master/Teacher Program", CourseSectionName = "1. Intorductions" , CourseWatchPercentage = 0, CourseImgUrl = "/images/CourseImages.svg"},
-                new StudentCoursesViewModel {CourseId = 1, CourseName = "Reiki Level I, II and Master/Teacher Program", CourseSectionName = "1. Intorductions" , CourseWatchPercentage = 0, CourseImgUrl = "/images/CourseImages.svg"},
+                new StudentCoursesViewModel {CourseId = 1, CourseName = "Reiki Level I, II and Master/Teacher Program", CourseSectionName = "2. Students" , CourseWatchPercentage = 0, CourseImgUrl = "/images/CourseImages.svg"},
             };
 
             return View(courselist);

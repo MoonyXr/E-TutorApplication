@@ -24,7 +24,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @(currentController == "Instructor" && currentAction == "MyCourses" ? "active" : "")" href="@Url.Action("MyCourses", "Instructor")">
+            <a class="nav-link @(currentController == "Instructor" && (currentAction == "MyCourses" || currentAction == "ViewCourseDetail") ? "active" : "")" href="@Url.Action("MyCourses", "Instructor")">
                 <img src="~/images/stack.svg" />
                 <span>My Courses</span>
             </a>

@@ -11,7 +11,7 @@ namespace E_TutorApplicationFront.Controllers
 
         public IActionResult StudentDashboard() 
         {
-            return PartialView("_StudentDashboard.cshtml");
+            return View();
         }
     }
 }

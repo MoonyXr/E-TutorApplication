@@ -1,5 +1,14 @@
-﻿body {
+﻿html {
+    scrollbar-width: none;
+}
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     font-family: 'Inter';
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
 .wrapper {

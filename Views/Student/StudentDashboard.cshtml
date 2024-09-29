@@ -1,0 +1,130 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_StudentLayout";
+}
+
+<style>
+    .dashboadrBody {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+        .dashboadrBody .card {
+            padding: 5px;
+            border: none;
+            border-radius: 0px;
+            width: 300px;
+            padding: 15px;
+        }
+
+        .dashboadrBody .card {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+
+        .dashboadrBody .content h2 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .dashboadrBody .content p {
+            font-size: 12px;
+            color: #4E5566;
+        }
+
+        .dashboadrBody img {
+            padding-right: 20px;
+        }
+
+    .results {
+        width: 100%;
+    }
+
+        .results h5, .enrolledCourses h5 {
+            padding: 25px 0px 20px 0px;
+            font-weight: 600;
+        }
+
+    #courseCarousel{
+        padding-top: 30px;
+    }
+</style>
+<div class="results">
+    <h5>Dashboard</h5>
+    <div class="dashboadrBody">
+        <div class="card" style="background-color: #FFEEE8;">
+            <div class="icon">
+                <img src="~/images/enrolledcourse.svg" />
+            </div>
+            <div class="content">
+                <h2>957</h2>
+                <p>Enrolled Courses</p>
+            </div>
+        </div>
+        <div class="card " style="background-color: #EBEBFF;">
+            <div class="icon">
+                <img src="~/images/activecourse.svg" />
+            </div>
+            <div class="content">
+                <h2>6</h2>
+                <p>Active Courses</p>
+            </div>
+        </div>
+        <div class="card" style="background-color: #E1F7E3;">
+            <div class="icon">
+                <img src="~/images/complitedcourse.svg" />
+            </div>
+            <div class="content">
+                <h2>951</h2>
+                <p>Complited Courses</p>
+            </div>
+        </div>
+        <div class="card" style="background-color: #FFF2E5;">
+            <div class="icon">
+                <img src="~/images/courseinstructor.svg" />
+            </div>
+            <div class="content">
+                <h2>241</h2>
+                <p>Course Instructors</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="courseCarousel" class="carousel slide">
+    <div class="row">
+
+        <div class="col col-sm-6">
+            <h4><b>Let’s start learning, Kevin</b></h4>
+        </div>
+        <div class="col col-sm-6 caruselbuttons">
+            <div class="carousel-controls">
+                <button class="carousel-control-btn" id="prevBtn" data-target="#courseCarousel" data-slide="prev">
+                    <img src="~/images/arrowleft.svg" />
+
+                </button>
+                <button class="carousel-control-btn" id="nextBtn" data-target="#courseCarousel" data-slide="next">
+                    <img src="~/images/arrowright.svg" />
+
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                @await Component.InvokeAsync("StudentCourses")
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

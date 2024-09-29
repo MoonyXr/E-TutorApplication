@@ -1,0 +1,50 @@
+﻿@{
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+}
+<div class="container-fluid mainbody">
+    <div class="StudentPage">
+        <div class="container containerDiv">
+
+            <div class=" dashboard-header">
+                <div class="row">
+                    <div class="col col-sm-1 ">
+                        <div class="profile-pic">
+                            <img src="~/images/profilepicture.svg" alt="Profile Picture" class="profile-pic" />
+                        </div>
+                    </div>
+                    <div class="col col-sm-6 ">
+                        <div class="user-info">
+                            <h2>Kevin Gilbert</h2>
+                            <p>Web Designer & Best-Selling Instructor</p>
+                        </div>
+                    </div>
+                    <div class="col col-sm-5">
+                        <div class="become-instructor">
+                            <a href="#" class="btn">Become Instructor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-footer">
+                <div class="nav-links ">
+                    <ul>
+                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentDashboard" ? "active" : "")" href="@Url.Action("StudentDashboard", "Student")">Dashboard</a></li>
+                        <li><a href="#" onclick="loadPartialView('Courses')">Courses</a></li>
+                        <li><a href="#" onclick="loadPartialView('Teachers')">Teachers</a></li>
+                        <li><a href="#" onclick="loadPartialView('Message')">Message</a></li>
+                        <li><a href="#" onclick="loadPartialView('Wishlist')">Wishlist</a></li>
+                        <li><a href="#" onclick="loadPartialView('PurchaseHistory')">Purchase History</a></li>
+                        <li><a href="#" onclick="loadPartialView('Settings')">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

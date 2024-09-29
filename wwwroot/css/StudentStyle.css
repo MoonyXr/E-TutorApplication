@@ -5,18 +5,19 @@
     padding: 0px;
 }
 .StudentPage {
-    height: 100vh;
-    background: linear-gradient(to bottom, #FFEEE8 35%, white 30%);
-    padding: 25px;
+    height: 40vh;
+    background: linear-gradient(to bottom, #FFEEE8 65%, white 40%);
+    padding: 5px;
     margin: 0px;
 }
 .containerDiv {
-    width: 76%;
+    width: 72%;
     border: 1px solid #FFDDD1;
+    margin-top: 40px;
     padding: 0;
 }
 .linksAndResults{
-    width: 76%;
+    width: 66%;
     padding: 0;
 }
 .dashboard-header {
@@ -130,4 +131,10 @@
     border: none;
     padding: 3px;
     position: static;
+}
+
+.studentLayout{
+    width: 72%;
+    right: auto;
+    left: auto;
 }

@@ -1,0 +1,40 @@
+﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 navbarclass">
+    <div class="container-fluid">
+
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Become an Instructor</a>
+                </li>
+            </ul>
+            <div class="dropdown navdropdown" style="margin-right: 20px;">
+                <select name="currency" id="currency">
+                    <option value="usd">USD</option>
+                    <option value="azn">AZN</option>
+                    <option value="tl">TL</option>
+                </select>
+            </div>
+
+            <div class="dropdown navdropdown" style="margin-right: 20px;">
+                <select name="language" id="language">
+                    <option value="en">English</option>
+                    <option value="az">Azerbaijani</option>
+                    <option value="tr">Turkish</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
+</nav>
