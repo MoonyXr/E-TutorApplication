@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model StudentDashboardCardsViewModel;
 @{
     Layout = "_StudentLayout";
 }
@@ -61,7 +59,7 @@
                 <img src="~/images/enrolledcourse.svg" />
             </div>
             <div class="content">
-                <h2>957</h2>
+                <h2>@Model.EnrolledCoursesCount</h2>
                 <p>Enrolled Courses</p>
             </div>
         </div>
@@ -70,7 +68,7 @@
                 <img src="~/images/activecourse.svg" />
             </div>
             <div class="content">
-                <h2>6</h2>
+                <h2>@Model.ActiveCoursesCount</h2>
                 <p>Active Courses</p>
             </div>
         </div>
@@ -79,7 +77,7 @@
                 <img src="~/images/complitedcourse.svg" />
             </div>
             <div class="content">
-                <h2>951</h2>
+                <h2>@Model.COmplitedCoursesCount</h2>
                 <p>Complited Courses</p>
             </div>
         </div>
@@ -88,7 +86,7 @@
                 <img src="~/images/courseinstructor.svg" />
             </div>
             <div class="content">
-                <h2>241</h2>
+                <h2>@Model.CourseInstructorCount</h2>
                 <p>Course Instructors</p>
             </div>
         </div>
@@ -100,7 +98,7 @@
     <div class="row">
 
         <div class="col col-sm-6">
-            <h4><b>Let’s start learning, Kevin</b></h4>
+            <h5><b>Let’s start learning, Kevin</b></h5>
         </div>
         <div class="col col-sm-6 caruselbuttons">
             <div class="carousel-controls">

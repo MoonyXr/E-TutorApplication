@@ -30,7 +30,7 @@
                 <div class="nav-links ">
                     <ul>
                         <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentDashboard" ? "active" : "")" href="@Url.Action("StudentDashboard", "Student")">Dashboard</a></li>
-                        <li><a href="#" onclick="loadPartialView('Courses')">Courses</a></li>
+                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentCourses" ? "active" : "")" href="@Url.Action("StudentCourses", "Student")">Courses</a></li>
                         <li><a href="#" onclick="loadPartialView('Teachers')">Teachers</a></li>
                         <li><a href="#" onclick="loadPartialView('Message')">Message</a></li>
                         <li><a href="#" onclick="loadPartialView('Wishlist')">Wishlist</a></li>
