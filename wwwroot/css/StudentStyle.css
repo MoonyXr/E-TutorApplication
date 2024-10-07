@@ -1,4 +1,5 @@
 ﻿body {
+    font-family: 'Inter';
 }
 
 .mainbody {
@@ -138,3 +139,12 @@
     right: auto;
     left: auto;
 }
+
+.results {
+    width: 100%;
+}
+
+    .results h5, .enrolledCourses h5 {
+        padding: 45px 0px 20px 0px;
+        font-weight: 600;
+    }

@@ -1,0 +1,162 @@
+﻿@model StudentBioInformation?
+@{
+    Layout = "_StudentLayout";
+}
+<style>
+    .buttonandimage {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        width: 100%;
+        padding: 40px 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-center {
+        background-color: white;
+        margin-right: 50px;
+        border: 1px solid #E9EAF0;
+    }
+
+        .text-center small {
+            margin-top: 0px;
+            font-size: 10px;
+            padding: 3px 15px;
+        }
+
+        .text-center button {
+            border: none;
+            padding: 3px;
+            width: 250px;
+        }
+
+            .text-center button:hover {
+                border: none;
+                background-color: #F5F7FA;
+            }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 80%;
+    }
+
+        .input-container img {
+            font-size: 20px;
+            color: #FF6636;
+            margin-right: 8px;
+            width: 17px;
+        }
+
+        .input-container input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-left: 2px solid #E9EAF0;
+            padding: 1px;
+            margin-left: 0px !important;
+        }
+
+            .input-container input::placeholder {
+                color: #bbb;
+            }
+
+    .textboxCol input, .textboxCol text, .changepassword input{
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #E9EAF0;
+        border-radius: 0;
+        margin: 5px 0px 10px 0px;
+    }
+
+    .textboxCol span, .changepassword span, .changepassword label{
+        font-size: 12px;
+    }
+    ::placeholder{
+        color: #8C94A3;
+    }
+
+    #SaveChanges{
+        color: white;
+        background-color: #FF6636;
+        border: none;
+        padding: 5px 15px;
+        margin-top: 18px;
+        border-radius: 0px;
+    }
+
+    .changepassword{
+        padding: 0px;
+    }
+</style>
+
+<div class="results">
+    <h5>Account settings</h5>
+
+    <form asp-action="ChangeStudentBioInformation" asp-controller="Student">
+        <div class="row">
+            <div class=" col col-md-4">
+                <div class="text-center">
+                    <div class="mt-2 buttonandimage">
+                       
+                        <input type="file" id="profileImage" name="ProfileImage" style="display: none;" onchange="document.getElementById('profileImageForm').submit()" asp-for="ImgPath">
+                        <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('profileImage').click();">
+                            <img src="@(Model?.ImgPath ?? "https://via.placeholder.com/220")" class="" alt="Profile Photo">
+                            Upload Photo
+                        </button>
+                    </div>
+                    <small class="text-muted d-block">Image size should be under 1MB and image ratio needs to be 1:1</small>
+                </div>
+            </div>
+            <div class="col col-8 textboxCol">
+                <div class="row">
+                    <div class="col">
+                        <span>Full Name</span><br />
+                        <input type="text" placeholder="@(Model?.Name?? "Name ")" asp-for="Name"/>
+                    </div>
+                    <div class="col">
+                        <br />
+                        <input type="text" placeholder="@(Model?.Surname?? "Surname ")" asp-for="Surname" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <span>Username</span><br />
+                        <input type="text" placeholder="@(Model?.Username?? "Enter your username ")" asp-for="Username" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span>Email</span><br />
+                        <input type="email" placeholder="@(Model?.Email?? "Email Address ")" asp-for="Email" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span>Tittle</span><br />
+                        <textarea class="form-control" type="text" placeholder="@(Model?.Title ?? "Your title, profession or small biography" )" asp-for="Title"/></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="SaveChanges">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+   
+
+    <div class="row">
+        <div class="col col-6">
+            @Html.Partial("_changeStudentPasswordPartialView", Model.UpdatePasswordViewModel)
+        </div>
+    </div>
+</div>

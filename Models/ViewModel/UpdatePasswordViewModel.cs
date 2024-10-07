@@ -2,7 +2,7 @@
 
 namespace E_TutorApplicationFront.Models.ViewModel
 {
-    public class UpdatePasswordInstructorViewModel
+    public class UpdatePasswordViewModel
     {
         public int InstructorId { get; set; }
         [Required(ErrorMessage = "Current password is required.")]
