@@ -5,6 +5,6 @@
         public SettingInfoViewModel? SettingInfo { get; set; }
         public SosialProfile? SosialProfile { get; set; }
         public InstructorSettingsNotificationViewModel? NotificationViewModel { get; set; }
-        public UpdatePasswordInstructorViewModel? UpdatePasswordInstructorViewModel { get; set;}
+        public UpdatePasswordViewModel? UpdatePasswordInstructorViewModel { get; set;}
     }
 }

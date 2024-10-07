@@ -68,7 +68,7 @@ namespace E_TutorApplicationFront.Controllers
         public IActionResult SettingsInformationUpdate(SettingInfoViewModel settingInfoViewModel)
         {
             if (!ModelState.IsValid)
-                return RedirectToAction("Settings");
+                return View("Settings");
             return RedirectToAction("Settings");
         }
 
@@ -85,10 +85,10 @@ namespace E_TutorApplicationFront.Controllers
         } 
 
         [HttpPost]
-        public IActionResult UpdatePassword(UpdatePasswordInstructorViewModel updatePasswordInstructor)
+        public IActionResult UpdatePassword(UpdatePasswordViewModel updatePasswordInstructor)
         {
             if(!ModelState.IsValid)
-                return RedirectToAction("Settings");
+                return View("Settings");
             return RedirectToAction("Settings");
         }
 

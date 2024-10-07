@@ -32,10 +32,10 @@
                         <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentDashboard" ? "active" : "")" href="@Url.Action("StudentDashboard", "Student")">Dashboard</a></li>
                         <li><a href="#" onclick="loadPartialView('Courses')">Courses</a></li>
                         <li><a href="#" onclick="loadPartialView('Teachers')">Teachers</a></li>
-                        <li><a href="#" onclick="loadPartialView('Message')">Message</a></li>
-                        <li><a href="#" onclick="loadPartialView('Wishlist')">Wishlist</a></li>
+@*                         <li><a href="#" onclick="loadPartialView('Message')">Message</a></li>
+ *@                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentWishList" ? "active" : "")" href="@Url.Action("StudentWishList", "Student")">Wishlist</a></li>
                         <li><a href="#" onclick="loadPartialView('PurchaseHistory')">Purchase History</a></li>
-                        <li><a href="#" onclick="loadPartialView('Settings')">Settings</a></li>
+                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentSettings" ? "active" : "")" href="@Url.Action("StudentSettings", "Student")">Settings</a></li>
                     </ul>
                 </div>
             </div>
