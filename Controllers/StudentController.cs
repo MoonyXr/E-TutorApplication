@@ -1,5 +1,7 @@
 ﻿using E_TutorApplicationFront.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Drawing.Printing;
 
 namespace E_TutorApplicationFront.Controllers
 {
@@ -23,10 +25,7 @@ namespace E_TutorApplicationFront.Controllers
             return View(model);
         }
 
-        public IActionResult StudentCourses()
-        {
-            return View();
-        }
+       
 
         public IActionResult StudentWishList()
         {
@@ -69,7 +68,55 @@ namespace E_TutorApplicationFront.Controllers
             
             return View();
         }
+        public IActionResult StudentCourses(int page = 1, int pageSize = 12)
+        {
+            var courses = new List<StudentCoursesViewModel>()
+            {
+                new StudentCoursesViewModel() {CourseId =1, CourseName = "Learn More About Web Design", CourseImgUrl = "", CourseSectionName = "Learn Ethical Hacking From Scratch", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =2, CourseName = "Font Properties Challenge 3", CourseImgUrl = "", CourseSectionName = "SQL for NEWBS: Weekender Crash Course", CourseWatchPercentage = 2, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =3, CourseName = "Adding Content to Our Website", CourseImgUrl = "", CourseSectionName = "Complete Adobe Lightroom Megacourse: Begin...", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =4, CourseName = "CSS Font Property Challenge Solution", CourseImgUrl = "", CourseSectionName = "Machine Learning A-Z™: Hands-On Python & R I...", CourseWatchPercentage = 23, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =5, CourseName = "Adding Content to Our Website", CourseImgUrl = "", CourseSectionName = "Premiere Pro CC for Beginners: Video Editing in...", CourseWatchPercentage = 26, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =6, CourseName = "The Dark Art of Centering Elements w...", CourseImgUrl = "", CourseSectionName = "Graphic Design Masterclass - Learn GREAT De...", CourseWatchPercentage = 21, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =7, CourseName = "CSS Static and Relative Positioning", CourseImgUrl = "", CourseSectionName = "Angular - The Complete Guide (2021 Edition)", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =8, CourseName = "Learn More About Typography", CourseImgUrl = "", CourseSectionName = "Complete Blender Creator: Learn 3D Modelling...", CourseWatchPercentage = 52, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =1, CourseName = "Learn More About Web Design", CourseImgUrl = "", CourseSectionName = "Learn Ethical Hacking From Scratch", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =2, CourseName = "Font Properties Challenge 3", CourseImgUrl = "", CourseSectionName = "SQL for NEWBS: Weekender Crash Course", CourseWatchPercentage = 2, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =3, CourseName = "Adding Content to Our Website", CourseImgUrl = "", CourseSectionName = "Complete Adobe Lightroom Megacourse: Begin...", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =4, CourseName = "CSS Font Property Challenge Solution", CourseImgUrl = "", CourseSectionName = "Machine Learning A-Z™: Hands-On Python & R I...", CourseWatchPercentage = 23, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =5, CourseName = "Adding Content to Our Website", CourseImgUrl = "", CourseSectionName = "Premiere Pro CC for Beginners: Video Editing in...", CourseWatchPercentage = 26, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =6, CourseName = "The Dark Art of Centering Elements w...", CourseImgUrl = "", CourseSectionName = "Graphic Design Masterclass - Learn GREAT De...", CourseWatchPercentage = 21, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =7, CourseName = "CSS Static and Relative Positioning", CourseImgUrl = "", CourseSectionName = "Angular - The Complete Guide (2021 Edition)", CourseWatchPercentage = 0, IsStart = false},
+                new StudentCoursesViewModel() {CourseId =8, CourseName = "Learn More About Typography", CourseImgUrl = "", CourseSectionName = "Complete Blender Creator: Learn 3D Modelling...", CourseWatchPercentage = 52, IsStart = true},
+                new StudentCoursesViewModel() {CourseId =9, CourseName = "Introductions", CourseImgUrl = "", CourseSectionName = "Ultimate Google Ads Training 2020: Profit with...", CourseWatchPercentage = 0, IsStart = false},
+            };
+            var pagedCourses = courses.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
+            ViewBag.TotalPages = Math.Ceiling((double)courses.Count() / pageSize);
+            ViewBag.CurrentPage = page;
+
+            return View(pagedCourses);
+        }
+        public IActionResult StudentTeachers(int page = 1, int pageSize = 12)
+        {
+            var teachers = new List<StudentTeachersViewModel>()
+            {
+                new StudentTeachersViewModel(){Id = 1,TeacherFullname = "Wade Warren", StudentsCount = 20, TeacherPoint = 5.0, TeacherSpecialty = "Digital Product Designer"},
+                new StudentTeachersViewModel(){Id = 2,TeacherFullname = "Bessie Cooper", StudentsCount = 568, TeacherPoint = 4.5, TeacherSpecialty = "Senior Developer"},
+                new StudentTeachersViewModel(){Id = 3,TeacherFullname = "Floyd Miles", StudentsCount = 568, TeacherPoint = 4.5, TeacherSpecialty = "UI/UX Designer"},
+                new StudentTeachersViewModel(){Id = 4,TeacherFullname = "Ronald Richards", StudentsCount = 435, TeacherPoint = 5, TeacherSpecialty = "Lead Developer"},
+                new StudentTeachersViewModel(){Id = 5,TeacherFullname = "Devon Lane", StudentsCount = 435, TeacherPoint = 4.0, TeacherSpecialty = "Senior Developer"},
+                new StudentTeachersViewModel(){Id = 6,TeacherFullname = "Robert Fox", StudentsCount = 356, TeacherPoint = 4.5, TeacherSpecialty = "UI/UX Designer"},
+                new StudentTeachersViewModel(){Id = 7,TeacherFullname = "Kathryn Murphy", StudentsCount = 356, TeacherPoint = 5.0, TeacherSpecialty = "Adobe Instructor"},
+                new StudentTeachersViewModel(){Id = 8,TeacherFullname = "Jerome Bell", StudentsCount = 711, TeacherPoint = 5.0, TeacherSpecialty = "Adobe Instructor"},
+            };
+            var pagedTeachers = teachers.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.TotalPages = Math.Ceiling((double)teachers.Count() / pageSize);
+            ViewBag.CurrentPage = page;
+
+            return View(pagedTeachers);
+        }
 
     }
 }

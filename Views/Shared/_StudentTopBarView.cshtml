@@ -2,6 +2,29 @@
     var currentAction = ViewContext.RouteData.Values["action"].ToString();
     var currentController = ViewContext.RouteData.Values["controller"].ToString();
 }
+<style>
+    .dashboard-footer li{
+        padding:  0px 0px;
+        margin:0px;
+
+    }
+
+    .nav-link {
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .dashboard-footer a{
+        padding: 10px 81.5px;
+        margin: 0px;
+    }
+
+        .nav-link.active {
+            border-bottom: 2px solid orange; 
+            width: 100%; 
+        }
+
+</style>
 <div class="container-fluid mainbody">
     <div class="StudentPage">
         <div class="container containerDiv">
@@ -31,10 +54,10 @@
                     <ul>
                         <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentDashboard" ? "active" : "")" href="@Url.Action("StudentDashboard", "Student")">Dashboard</a></li>
                         <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentCourses" ? "active" : "")" href="@Url.Action("StudentCourses", "Student")">Courses</a></li>
-                        <li><a href="#" onclick="loadPartialView('Teachers')">Teachers</a></li>
+                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentTeachers" ? "active" : "")" href="@Url.Action("StudentTeachers", "Student")">Teachers</a></li>
 @*                         <li><a href="#" onclick="loadPartialView('Message')">Message</a></li>
  *@                        <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentWishList" ? "active" : "")" href="@Url.Action("StudentWishList", "Student")">Wishlist</a></li>
-                        <li><a href="#" onclick="loadPartialView('PurchaseHistory')">Purchase History</a></li>
+                    @*     <li><a href="#" onclick="loadPartialView('PurchaseHistory')">Purchase History</a></li> *@
                         <li><a class="nav-link @(currentController == "Student" && currentAction == "StudentSettings" ? "active" : "")" href="@Url.Action("StudentSettings", "Student")">Settings</a></li>
                     </ul>
                 </div>
